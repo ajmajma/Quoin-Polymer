@@ -1,31 +1,32 @@
 .red-100 {
-  background: var(--google-red-100);
+  background: var(--paper-red-300);
 }
 
 .yellow-100 {
-  background: var(--google-yellow-100);
+  background: var(--paper-yellow-300);
 }
 
 .blue-100 {
-  background: var(--google-blue-100);
+  background: var(--paper-blue-300);
 }
 
 .green-100 {
-  background: var(--google-green-100);
+  background: var(--paper-cyan-300);
 }
 
 .red-300 {
-  background: var(--google-red-300);
+  background: var(--paper-red-800);
 }
 
 .yellow-300 {
-  background: var(--google-yellow-300);
+  background: var(--paper-yellow-800);
 }
 
 .blue-300 {
-  background: var(--google-blue-300);
+  background: var(--paper-blue-800);
 }
 
 .green-300 {
-  background: var(--google-green-300);
+  background: var(--paper-cyan-800);
 }
+

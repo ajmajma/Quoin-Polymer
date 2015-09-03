@@ -21,3 +21,8 @@ animated-grid {
     display: block;
     height: 100vh;
 }
+
+ paper-card {
+      width: 100%;
+      margin-bottom: 16px;
+    }
