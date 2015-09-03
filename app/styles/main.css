@@ -13,16 +13,15 @@ body {
     color: #333;
 }
 
-neon-animated-pages {
-    height: 100%;
-}
-
 animated-grid {
     display: block;
     height: 100vh;
 }
 
- paper-card {
-      width: 100%;
-      margin-bottom: 16px;
-    }
+.content {
+	height: 100%;
+}
+
+.into-wrap-route {
+	height: 100%;
+}

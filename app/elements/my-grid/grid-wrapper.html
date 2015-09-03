@@ -1,0 +1,45 @@
+<dom-module id="grid-wrapper">
+    <style>
+
+    </style>
+    <template>
+        <animated-grid on-tile-click="_onTileClick" id="grid"></animated-grid>
+    </template>
+</dom-module>
+<script>
+Polymer({
+    is: 'grid-wrapper',
+    behaviors: [
+        Polymer.NeonAnimatableBehavior,
+        Polymer.NeonAnimationRunnerBehavior
+    ],
+    properties: {
+        animationConfig: {
+            type: Object,
+            value: function() {
+                return {
+                    'entry': [{
+                        animatable: this.$.grid,
+                        type: 'entry'
+                    }]
+                };
+            }
+        }
+    },
+    show: function() {
+      console.log("shown!!")
+        this.style.visibility = 'visible';
+        this.playAnimation('entry');
+    },
+
+    _onTileClick: function(event) {
+        this.$.color = event.detail.data.color;
+        this.$.title = event.detail.data.title;
+        this.$.content = event.detail.data.content;
+        this.$.pages.selected = 1;
+    },
+    _onFullsizeClick:function(event) {
+        this.$.pages.selected = 0;
+    }
+});
+</script>

@@ -1,0 +1,115 @@
+<dom-module id="squares-page">
+    <style>
+    .header {
+        height: 20%;
+        background: #2196F3;
+    }
+
+    .web {
+        height: 40%;
+        background: #0D47A1;
+    }
+
+    .applications {
+        height: 20%;
+        background: #64B5F6;
+    }
+
+    .body {
+        text-align: center;
+        padding: 8px;
+    }
+
+    .square {
+        display: inline-block;
+        color: #fff;
+        padding-top: 60px;
+        width: 150px;
+        height: 90px;
+        margin: 8px;
+        background: #E91E63;
+    }
+
+    .titles {
+        color: #fff;
+        text-align: center;
+        padding-top: 45px;
+        font-weight: 300;
+    }
+    </style>
+    <template>
+        <div id="applications" class="applications">
+            <div class="titles">Applications</div>
+        </div>
+        <div id="header" class="header">
+            <div class="titles">Existing Frameworks</div>
+        </div>
+        <div class="body">
+            <div class="square">Element</div>
+            <div class="square">Element</div>
+            <div class="square">Element</div>
+            <div class="square">Element</div>
+        </div>
+        <div id="web" class="web">
+            <div class="titles">Web Platform</div>
+        </div>
+    </template>
+</dom-module>
+<script>
+Polymer({
+    is: 'squares-page',
+    behaviors: [
+        Polymer.NeonSharedElementAnimatableBehavior
+    ],
+    properties: {
+        sharedElements: {
+            value: function() {
+                return {
+                    'hero': this.$.header,
+                    'web': this.$.web,
+                    'applications': this.$.applications
+                }
+            }
+        },
+        animationConfig: {
+            value: function() {
+                var squares = Polymer.dom(this.root).querySelectorAll('.square');
+                var squaresArray = Array.prototype.slice.call(squares);
+                return {
+                    'entry': [{
+                        name: 'hero-animation',
+                        id: 'hero',
+                        toPage: this
+                    }, {
+                        name: 'cascaded-animation',
+                        animation: 'transform-animation',
+                        transformFrom: 'translateY(100%)',
+                        nodes: squaresArray
+                    }, {
+                        name: 'scale-up-animation',
+                        node: this.$.web
+                    }, {
+                        name: 'slide-down-animation',
+                        node: this.$.applications
+                    }],
+                    'exit': [{
+                        name: 'slide-up-animation',
+                        node: this.$.header
+                    }, {
+                        name: 'scale-down-animation',
+                        node: this.$.web
+                    }, {
+                        name: 'scale-down-animation',
+                        node: this.$.applications
+                    }, {
+                        name: 'cascaded-animation',
+                        animation: 'transform-animation',
+                        transformTo: 'translateY(60vh)',
+                        nodes: squaresArray
+                    }]
+                };
+            }
+        }
+    }
+});
+</script>

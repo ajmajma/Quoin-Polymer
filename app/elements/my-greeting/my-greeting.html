@@ -21,10 +21,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
   </style>
   <template>
-    <h1 class="paper-font-display1"><span>{{greeting}}</span></h1>
-    <span class="paper-font-body2">"Polymer is a pioneering library that makes it faster and easier than ever before to build beautiful applications on the web. Polymer is built on top of a set of powerful new web platform primitives called Web Components. Web Components bring unprecedented composability, interoperability, and consumability to the web platform.Web developers are attracted by its simplicity. Traditionally, developers create Web pages with a combination of HTML, CSS and JavaScript, which can be difficult to modify, debug, maintain and reuse. Polymer encapsulates these three languages into functional component elements from which Web pages can be constructed, reducing development complexity and boosting reuse. In essence, Polymer elements can be used to create “app-like,” immersive experiences on the Web."</span>
+<!--     <h1 class="paper-font-display1"><span>{{greeting}}</span></h1> -->
+    <h4 class="paper-font-display1">Polymer is a pioneering library that makes it faster and easier than ever before to build beautiful applications on the web. Polymer is built on top of a set of powerful new web platform primitives called Web Components. Web Components bring unprecedented composability, interoperability, and consumability to the web platform. The result is a monumental increase in developer productivity!</h2>
     <!-- Listens for "input" event and sets greeting to <input>.value -->
-    <input class="paper-font-body2" value="{{greeting::input}}">
 
   </template>
 
@@ -36,7 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         properties: {
           greeting: {
             type: String,
-            value: 'Welcome!',
+            value: 'Hello',
             notify: true
           }
         }

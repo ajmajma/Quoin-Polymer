@@ -24,41 +24,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         }
 
-       /* .tile:nth-of-type(1) {
-            width: calc(100% / 3);
-            height: calc(100% / 3 * 2);
-        }
-
-        .tile:nth-of-type(4) {
-            width: calc(100% / 3);
+        .tile:nth-of-type(1) {
+            height: 100%
         }
 
         .tile:nth-of-type(5) {
-            width: calc(100% / 3);
-            height: calc(100% / 3 * 2);
+            width: calc(100% / 2);
+        }
+
+        .tile:nth-of-type(7) {
+            width: 50%;
         }
 
         .tile:nth-of-type(8) {
-            width: calc(100% / 3);
-            height: calc(100% / 3);
+           width: 50%;
         }
-
-        .tile:nth-of-type(9) {
-            position: absolute;
-            top: calc(100% / 3 * 2);
-            left: 0;
-            width: calc(100% / 6);
-            height: calc(100% / 3);
-        }
-
-        .tile:nth-of-type(10) {
-            position: absolute;
-            top: calc(100% / 3 * 2);
-            left: calc(100% / 6);
-            ;
-            width: calc(100% / 6);
-            height: calc(100% / 3);
-        }*/
 
         span {
             color : #fff;
@@ -94,11 +74,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 value: function() {
                     return [{
                         value: 1,
+                        slide: 'slide-one',
                         color: 'blue',
                         title: 'What is Polymer?',
                         content: 'A google project that has been part of the web platform team on chromeBegan about 3 years ago  1.0 just realesed early in 2015, production ready Built off web components'
                     }, {
                         value: 2,
+                        slide: 'slide-two',
                         color: 'red',
                         title: 'Web Components',
                         content: 'Web Components are a set of standards currently being produced by Google engineers as a W3C specification that allow for the creation of reusable widgets or components in web documents and web applications.   The components model allows for encapsulation and interoperability of individual HTML elements.  Web Components consist of 4 main elements which can be used separately or all together:  Custom Elements  The method for enabling the author to define and use new types of DOM elements in a document.  Shadow DOM  Provides encapsulation for the JavaScript, CSS and templating in a Web Component. HTML Imports  HTML Imports are a way to include and reuse HTML documents in other HTML documents.  HTML Templates  The template element is used to declare fragments of HTML that can be cloned and inserted in the document by script.'

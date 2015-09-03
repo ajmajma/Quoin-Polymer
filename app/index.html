@@ -87,28 +87,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     </div>
                     <!-- Application sub title -->
                     <div class="bottom bottom-container center horizontal layout">
-                        <div class="bottom-title paper-font-subhead">web components and ..stuff</div>
+                        <div class="bottom-title paper-font-subhead accent">and web components</div>
                     </div>
                 </paper-toolbar>
                 <!-- Main Content -->
                 <div class="content">
                     <iron-pages attr-for-selected="data-route" selected="{{route}}">
-                        <section data-route="home">
-                            <paper-material elevation="1">
+                        <section data-route="home" class="into-wrap-route">
+                            <!-- <paper-material elevation="1">
                                 <my-greeting></my-greeting>
                             </paper-material>
                             <paper-material elevation="1">
                                 <p class="paper-font-body2">This is another card.</p>
-                            </paper-material>
+                            </paper-material> -->
+
+                            <intro-wrapper></intro-wrapper>
                         </section>
                         <section data-route="about">
                             <neon-animated-pages id="pages" selected="0">
-                                <animated-grid on-tile-click="_onTileClick"></animated-grid>
+                                 <animated-grid on-tile-click="_onTileClick" id="grid"></animated-grid>
                                 <fullsize-page-with-card id="fullsize-card" hero-id="hero" on-click="_onFullsizeClick">
                                 </fullsize-page-with-card>
                             </neon-animated-pages>
                         </section>
-                        <section data-route="user-info">
+                        <section data-route="contact">
+                             <my-resources></my-resources>
                         </section>
                     </iron-pages>
                 </div>
@@ -134,17 +137,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- build:js scripts/app.js -->
     <script src="scripts/app.js"></script>
     <script>
-    var scope = document.querySelector('template[is="dom-bind"]');
-    scope._onTileClick = function(event) {
-        this.$['fullsize-card'].color = event.detail.data.color;
-        this.$['fullsize-card'].title = event.detail.data.title;
-        this.$['fullsize-card'].content = event.detail.data.content;
-        this.$.pages.selected = 1;
-    };
-    scope._onFullsizeClick = function(event) {
-        this.$.pages.selected = 0;
-    };
+        var scope = document.querySelector('template[is="dom-bind"]');
+        scope._onTileClick = function(event) {
+            this.$['fullsize-card'].color = event.detail.data.color;
+            this.$['fullsize-card'].title = event.detail.data.title;
+            this.$['fullsize-card'].content = event.detail.data.content;
+            this.$['fullsize-card'].slide = event.detail.data.slide;
+            this.$.pages.selected = 1;
+        };
+        scope._onFullsizeClick = function(event) {
+            this.$.pages.selected = 0;
+        };
     </script>
+
     <!-- endbuild-->
 </body>
 
