@@ -1,4 +1,4 @@
-<dom-module id="circles-page">
+<dom-module id="slide-one-list">
     <style>
     :host {
         @apply(--layout-horizontal);
@@ -16,59 +16,34 @@
     .circle {
         display: inline-block;
         color: #fff;
-        padding: 20px;
-        /*        box-sizing: border-box;
-        width: 300px;
-        height: 300px;
-        margin: 16px;
-        border-radius: 50%;*/
         background: #2196F3;
         cursor: pointer;
     }
     </style>
     <template>
         <div>
-          <h2>Polymer</h2>
+          <h2>Introduction</h2>
             <ul class="circleList" id="circleList">
-                <li>Polymer is a library for building web compononents</li>
-                <li>Polymer is NOT a framework, web components are not a framework they can work with everything (pending browser support)</li>
-                <li>Library (1.0) ranges from 19k 42k</li>
-                <li>Currently using shim "shadyDOM", will dissapear when other browser ship web components</li>
-                <li>So How does it fit in with <div class="circle">existing frameworks</div> ?</li>
+                <li>Polymer is a library for creating Web Components</li>
+                <li>A google project that has been part of the web platform team on chromeBegan about 3 years ago</li>
+                <li>1.0 just realesed early in 2015, "production ready"</li>
             </ul>
         </div>
     </template>
 </dom-module>
 <script>
 Polymer({
-    is: 'circles-page',
+    is: 'slide-one-list',
     behaviors: [
         Polymer.NeonSharedElementAnimatableBehavior
     ],
     properties: {
-        config: {
-            type: Array,
-            value: function() {
-                return [{
-                    info: "Polymer is a library for building web compononents"
-                }, {
-                    info: "Polymer is a library for building web compononents"
-                }, {
-                    info: "Polymer is a library for building web compononents"
-                }]
-            }
-        },
-
         animationConfig: {
             value: function() {
                 var circles = Polymer.dom(this.root).querySelectorAll('.circle');
                 var circlesArray = Array.prototype.slice.call(circles);
                 return {
                     'entry': [{
-                        name: 'hero-animation',
-                        id: 'hero',
-                        toPage: this
-                    },{
                         name: 'cascaded-animation',
                         animation: 'scale-up-animation',
                         nodes: circlesArray
@@ -77,7 +52,7 @@ Polymer({
                         name: 'hero-animation',
                         id: 'hero',
                         fromPage: this
-                    },{
+                    }, {
                         name: 'cascaded-animation',
                         animation: 'scale-down-animation'
                     }, {

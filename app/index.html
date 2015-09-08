@@ -15,7 +15,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Polymer Starter Kit" />
-    <title>Polymer Starter Kit</title>
+    <title>Quoin - Polymer Presentation</title>
     <!-- Place favicon.ico in the `app/` directory -->
     <!-- Chrome for Android theme color -->
     <meta name="theme-color" content="#303F9F">
@@ -50,14 +50,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <template is="dom-bind" id="app">
         <paper-drawer-panel id="paperDrawerPanel" force-narrow="true">
             <!-- Drawer Scroll Header Panel -->
-            <paper-scroll-header-panel drawer fixed>
-                <!-- Drawer Toolbar -->
+         <!--    <paper-scroll-header-panel drawer fixed>
+
                 <paper-toolbar id="drawerToolbar">
                     <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
                     <span class="paper-font-title">Menu</span>
                 </paper-toolbar>
-                <!-- Drawer Content -->
+
                 <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
+                    <a data-route="slide-one" href="/slide-one">
+                        <iron-icon icon="home"></iron-icon>
+                        <span>Slide One</span>
+                    </a>
                     <a data-route="home" href="/">
                         <iron-icon icon="home"></iron-icon>
                         <span>Polymer</span>
@@ -71,49 +75,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <span>Resources</span>
                     </a>
                 </paper-menu>
-            </paper-scroll-header-panel>
+            </paper-scroll-header-panel> -->
             <!-- Main Area -->
-            <paper-scroll-header-panel main condenses keep-condensed-header>
+            <paper-scroll-header-panel main condenses>
                 <!-- Main Toolbar -->
-                <paper-toolbar id="mainToolbar" class="tall">
-                    <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-                    <span class="flex"></span>
-                    <!-- Toolbar icons -->
-                    <paper-icon-button icon="refresh"></paper-icon-button>
-                    <paper-icon-button icon="search"></paper-icon-button>
-                    <!-- Application name -->
-                    <div class="middle middle-container center horizontal layout">
-                        <div class="app-name">Polymer!</div>
-                    </div>
-                    <!-- Application sub title -->
-                    <div class="bottom bottom-container center horizontal layout">
-                        <div class="bottom-title paper-font-subhead accent">and web components</div>
-                    </div>
-                </paper-toolbar>
+
                 <!-- Main Content -->
                 <div class="content">
-                    <iron-pages attr-for-selected="data-route" selected="{{route}}">
-                        <section data-route="home" class="into-wrap-route">
-                            <!-- <paper-material elevation="1">
-                                <my-greeting></my-greeting>
-                            </paper-material>
-                            <paper-material elevation="1">
-                                <p class="paper-font-body2">This is another card.</p>
-                            </paper-material> -->
+                    <neon-animated-pages id="pages" attr-for-selected="data-route"  selected="{{route}}" class="animationStyleFix">
 
-                            <intro-wrapper></intro-wrapper>
-                        </section>
-                        <section data-route="about">
-                            <neon-animated-pages id="pages" selected="0">
-                                 <animated-grid on-tile-click="_onTileClick" id="grid"></animated-grid>
+                        <my-introduction data-route="home"></my-introduction>
+
+                        <my-landing data-route="introduction"></my-landing>
+
+                        <slide-one-wrapper data-route="slide-one"></slide-one-wrapper>
+
+                        <intro-wrapper data-route="polymer-intro"></intro-wrapper>
+
+                        <web-components-wrapper data-route="web-components"></web-components-wrapper>
+                           <!--  <neon-animated-pages id="pages" selected="0" data-route="about">
+                                <animated-grid on-tile-click="_onTileClick" id="grid"></animated-grid>
                                 <fullsize-page-with-card id="fullsize-card" hero-id="hero" on-click="_onFullsizeClick">
                                 </fullsize-page-with-card>
-                            </neon-animated-pages>
-                        </section>
+                            </neon-animated-pages> -->
+
                         <section data-route="contact">
-                             <my-resources></my-resources>
+                            <my-resources></my-resources>
                         </section>
-                    </iron-pages>
+
+                    </neon-animated-pages>
                 </div>
             </paper-scroll-header-panel>
         </paper-drawer-panel>
@@ -134,22 +124,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </platinum-sw-register>
     -->
     </template>
+
     <!-- build:js scripts/app.js -->
     <script src="scripts/app.js"></script>
     <script>
-        var scope = document.querySelector('template[is="dom-bind"]');
-        scope._onTileClick = function(event) {
-            this.$['fullsize-card'].color = event.detail.data.color;
-            this.$['fullsize-card'].title = event.detail.data.title;
-            this.$['fullsize-card'].content = event.detail.data.content;
-            this.$['fullsize-card'].slide = event.detail.data.slide;
-            this.$.pages.selected = 1;
-        };
-        scope._onFullsizeClick = function(event) {
-            this.$.pages.selected = 0;
-        };
+    var scope = document.querySelector('template[is="dom-bind"]');
+    scope._onTileClick = function(event) {
+        this.$['fullsize-card'].color = event.detail.data.color;
+        this.$['fullsize-card'].title = event.detail.data.title;
+        this.$['fullsize-card'].content = event.detail.data.content;
+        this.$['fullsize-card'].slide = event.detail.data.slide;
+        this.$.pages.selected = 1;
+    };
+    scope._onFullsizeClick = function(event) {
+        this.$.pages.selected = 0;
+    };
     </script>
-
     <!-- endbuild-->
 </body>
 

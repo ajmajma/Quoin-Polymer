@@ -1,4 +1,4 @@
-<dom-module id="squares-page">
+<dom-module id="slide-one-page">
     <style>
     .header {
         height: 20%;
@@ -60,12 +60,6 @@
             <div class="square">Element</div>
             <div class="square">Element</div>
         </div>
-  <!--       <div class="body">
-            <div class="component">Component</div>
-            <div class="component">Component</div>
-            <div class="component">Component</div>
-            <div class="component">Component</div>
-        </div> -->
         <div id="web" class="web">
             <div class="titles">Web Platform</div>
         </div>
@@ -73,7 +67,7 @@
 </dom-module>
 <script>
 Polymer({
-    is: 'squares-page',
+    is: 'slide-one-page',
     behaviors: [
         Polymer.NeonSharedElementAnimatableBehavior
     ],
@@ -117,10 +111,9 @@ Polymer({
                         node: this.$.applications
                     }],
                     'exit': [{
-                        name: 'hero-animation',
-                        id: 'hero',
-                        fromPage: this
-                      }, {
+                        name: 'slide-up-animation',
+                        node: this.$.header
+                    }, {
                         name: 'scale-down-animation',
                         node: this.$.web
                     }, {

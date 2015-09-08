@@ -7,165 +7,164 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <dom-module id="animated-grid">
-
     <link rel="import" type="css" href="grid-css.css">
-
     <style>
+    .tile {
+        display: inline-block;
+        float: left;
+        vertical-align: top;
+        width: 25%;
+        height: 50%;
+        @apply(--paper-font-title);
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+    }
 
-        .tile {
-            display: inline-block;
-            float: left;
-            vertical-align: top;
-            width: 25%;
-            height: 50%;
-            @apply(--paper-font-title);
-            @apply(--layout-vertical);
-            @apply(--layout-center-center);
+    .tile:nth-of-type(1) {
+        height: 100%
+    }
 
-        }
+    .tile:nth-of-type(5) {
+        width: calc(100% / 2);
+    }
 
-        .tile:nth-of-type(1) {
-            height: 100%
-        }
+    .tile:nth-of-type(7) {
+        width: 50%;
+    }
 
-        .tile:nth-of-type(5) {
-            width: calc(100% / 2);
-        }
+    .tile:nth-of-type(8) {
+        width: 50%;
+    }
 
-        .tile:nth-of-type(7) {
-            width: 50%;
-        }
-
-        .tile:nth-of-type(8) {
-           width: 50%;
-        }
-
-        span {
-            color : #fff;
-            font-size: 60px;
-        }
+    span {
+        color: #fff;
+        font-size: 60px;
+    }
     </style>
-
     <template>
-
         <template is="dom-repeat" items="[[config]]">
-            <div class$="[[_computeTileClass(item.color)]]">
+            <div class$="[[_computeTileClass(item.color)]]" >
                 <span>[[item.value]]</span>
             </div>
         </template>
-
     </template>
-
 </dom-module>
-
 <script>
-    Polymer({
+Polymer({
 
-        is: 'animated-grid',
+    is: 'animated-grid',
 
-        behaviors: [
-            Polymer.NeonSharedElementAnimatableBehavior
-        ],
+    behaviors: [
+        Polymer.NeonSharedElementAnimatableBehavior
+    ],
 
-        properties: {
+    properties: {
 
-            config: {
-                type: Array,
-                value: function() {
-                    return [{
-                        value: 1,
-                        slide: 'slide-one',
-                        color: 'blue',
-                        title: 'What is Polymer?',
-                        content: 'A google project that has been part of the web platform team on chromeBegan about 3 years ago  1.0 just realesed early in 2015, production ready Built off web components'
+        config: {
+            type: Array,
+            value: function() {
+                return [{
+                    value: 1,
+                    slide: 'slide-one',
+                    color: 'blue',
+                    title: 'What is Polymer?',
+                    content: 'A google project that has been part of the web platform team on chromeBegan about 3 years ago  1.0 just realesed early in 2015, production ready Built off web components'
+                }, {
+                    value: 2,
+                    slide: 'slide-two',
+                    color: 'red',
+                    title: 'Web Components',
+                    content: 'Web Components are a set of standards currently being produced by Google engineers as a W3C specification that allow for the creation of reusable widgets or components in web documents and web applications.   The components model allows for encapsulation and interoperability of individual HTML elements.  Web Components consist of 4 main elements which can be used separately or all together:  Custom Elements  The method for enabling the author to define and use new types of DOM elements in a document.  Shadow DOM  Provides encapsulation for the JavaScript, CSS and templating in a Web Component. HTML Imports  HTML Imports are a way to include and reuse HTML documents in other HTML documents.  HTML Templates  The template element is used to declare fragments of HTML that can be cloned and inserted in the document by script.'
+                }, {
+                    value: 3,
+                    color: 'blue',
+                    title: 'More Polymer',
+                    content: 'Polymer is a library for building web compononents   Polymer is NOT a framework, web components are not a framework  they can work with everything (pending browser support) 19k  42k  Currently using shim "shadyDOM", will dissapear when other browser ship web components'
+                }, {
+                    value: 4,
+                    color: 'green',
+                    title: 'And?',
+                    content: 'Polymer has a plethora of elemtents (https://elements.polymerproject.org/) All the google web components are wrapped as polymer elements, service worker, paper design, ect. Can start bare bones'
+                }, {
+                    value: 5,
+                    color: 'yellow',
+                    title: 'title5',
+                    content: 'Lorem Ipsums'
+                }, {
+                    value: 6,
+                    color: 'blue',
+                    title: 'title6',
+                    content: 'Lorem Ipsums'
+                }, {
+                    value: 7,
+                    color: 'red',
+                    title: 'title7',
+                    content: 'Lorem Ipsums'
+                }, {
+                    value: 8,
+                    color: 'yellow',
+                    title: 'Concerns',
+                    content: 'Web components scope the dom tree, CSS was built assuming single unscoped tree, their current solution is custom css properties The documentation is not good   It does not have a huge community around it (yet?), but there are companies using in production (http://builtwithpolymer.org/)'
+                }]
+            }
+        },
+
+        animationConfig: {
+            type: Object,
+            value: function() {
+                var squares = Polymer.dom(this.root).querySelectorAll('.theTile');
+                var squaresArray = Array.prototype.slice.call(squares);
+                return {
+                    'entry': [{
+                        name: 'cascaded-animation',
+                        animation: 'transform-animation',
+                        transformFrom: 'translateX(100%)',
+                        nodes: squaresArray
+                    }],
+                    'exit': [{
+                        name: 'ripple-animation',
+                        id: 'ripple',
+                        fromPage: this
                     }, {
-                        value: 2,
-                        slide: 'slide-two',
-                        color: 'red',
-                        title: 'Web Components',
-                        content: 'Web Components are a set of standards currently being produced by Google engineers as a W3C specification that allow for the creation of reusable widgets or components in web documents and web applications.   The components model allows for encapsulation and interoperability of individual HTML elements.  Web Components consist of 4 main elements which can be used separately or all together:  Custom Elements  The method for enabling the author to define and use new types of DOM elements in a document.  Shadow DOM  Provides encapsulation for the JavaScript, CSS and templating in a Web Component. HTML Imports  HTML Imports are a way to include and reuse HTML documents in other HTML documents.  HTML Templates  The template element is used to declare fragments of HTML that can be cloned and inserted in the document by script.'
-                    }, {
-                        value: 3,
-                        color: 'blue',
-                        title: 'More Polymer',
-                        content: 'Polymer is a library for building web compononents   Polymer is NOT a framework, web components are not a framework  they can work with everything (pending browser support) 19k  42k  Currently using shim "shadyDOM", will dissapear when other browser ship web components'
-                    }, {
-                        value: 4,
-                        color: 'green',
-                        title: 'And?',
-                        content: 'Polymer has a plethora of elemtents (https://elements.polymerproject.org/) All the google web components are wrapped as polymer elements, service worker, paper design, ect. Can start bare bones'
-                    }, {
-                        value: 5,
-                        color: 'yellow',
-                        title: 'title5',
-                        content: 'Lorem Ipsums'
-                    }, {
-                        value: 6,
-                        color: 'blue',
-                        title: 'title6',
-                        content: 'Lorem Ipsums'
-                    }, {
-                        value: 7,
-                        color: 'red',
-                        title: 'title7',
-                        content: 'Lorem Ipsums'
-                    }, {
-                        value: 8,
-                        color: 'yellow',
-                        title: 'Concerns',
-                        content: 'Web components scope the dom tree, CSS was built assuming single unscoped tree, their current solution is custom css properties The documentation is not good   It does not have a huge community around it (yet?), but there are companies using in production (http://builtwithpolymer.org/)'
+                        name: 'hero-animation',
+                        id: 'hero',
+                        fromPage: this
                     }]
                 }
-            },
-
-            animationConfig: {
-                type: Object,
-                value: function() {
-                    return {
-                        'exit': [{
-                            name: 'ripple-animation',
-                            id: 'ripple',
-                            fromPage: this
-                        }, {
-                            name: 'hero-animation',
-                            id: 'hero',
-                            fromPage: this
-                        }]
-                    }
-                }
             }
-
-        },
-
-        listeners: {
-            click: '_onClick'
-        },
-
-        _computeTileClass: function(color) {
-            return 'tile ' + color + '-300';
-        },
-
-        _onClick: function(event) {
-            var target = event.target;
-            while (target !== this && !target._templateInstance) {
-                target = target.parentNode;
-            }
-
-            // configure the page animation
-            this.sharedElements = {
-                'hero': target,
-                'ripple': target
-            };
-            this.animationConfig['exit'][0].gesture = {
-                x: event.x || event.pageX,
-                y: event.y || event.pageY
-            };
-
-            this.fire('tile-click', {
-                tile: target,
-                data: target._templateInstance.item
-            });
         }
 
-    });
+    },
+
+    listeners: {
+        click: '_onClick'
+    },
+
+    _computeTileClass: function(color) {
+        return 'tile ' + color + '-300';
+    },
+
+    _onClick: function(event) {
+        var target = event.target;
+        while (target !== this && !target._templateInstance) {
+            target = target.parentNode;
+        }
+
+        // configure the page animation
+        this.sharedElements = {
+            'hero': target,
+            'ripple': target
+        };
+        this.animationConfig['exit'][0].gesture = {
+            x: event.x || event.pageX,
+            y: event.y || event.pageY
+        };
+
+        this.fire('tile-click', {
+            tile: target,
+            data: target._templateInstance.item
+        });
+    }
+
+});
 </script>
