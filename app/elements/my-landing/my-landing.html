@@ -9,6 +9,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <dom-module id="my-landing">
     <style>
+    ::host {
+      color: #fff;
+    }
     neon-animated-pages {
         height: 100%;
     }
@@ -16,69 +19,80 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .fullbleed {
         height: 100%;
         padding: 40px;
+        background-color: #d81b60;
     }
 
     .next {
       position: absolute;
       bottom: 25px;
       right: 25px;
-        --paper-fab-background: var(--paper-red-500);
-      --paper-fab-keyboard-focus-background: var(--paper-red-900);
+    }
+
+    .fab {
+      --paper-fab-background: var(--paper-blue-500);
+      --paper-fab-keyboard-focus-background: var(--paper-blue-900);
     }
 
     .startCard {
-      background-color: #64B5F6;
-      padding: 15px;
+         padding: 15px;
     }
 
     h2 {
-      font-weight: 400;
+      font-weight: 200;
       font-size: 48px;
       margin: 20px 0;
-      color: rgba(0, 0, 0, 0.6);
+      color: #fff;
     }
     h3 {
-      color: rgba(0, 0, 0, 0.6);
-      display: table-caption;
+      color: #fff;
       margin: 0 0 15px;
       height: 64px;
       font-size: 20px;
-      font-weight: 500;
+      font-weight: 200;
       line-height: 28px;
     }
     hr {
       width: 100%;
       color: rgb(100, 181, 246);
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: #fff;
       opacity: 1;
       border: 0;
       height: 1px;
     }
     p {
       font-size: 13px;
-    margin: 10px 0 0 0;
-    line-height: 20px;
-    height: 40px;
+      margin: 10px 0 0 0;
+      line-height: 20px;
+      height: 40px;
+      color: #fff;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      font-weight: 200;
+      color: #fff;
+      padding-bottom: 10px;
     }
     </style>
     <template>
         <div class="fullbleed">
-          <paper-material elevation="1" class="startCard" id="startCard">
+          <!-- <paper-material elevation="1" class="startCard" id="startCard"> -->
             <h2 class="polyTation">Polymer</h2>
-            <h3 class="polyTation">Foundation Library</h3>
+            <h3 class="polyTation">Web Component Library</h3>
             <hr class="polyTation">
-            <p  class="polyTation">Presentation By : Alex Moser</p>
 
             <ul>
               <li class="polyTation">What is Polymer</li>
+              <li class="polyTation">Index landing page directory</li>
               <li class="polyTation">What are web components</li>
               <li class="polyTation">What are web components</li>
               <li class="polyTation">What are web components</li>
-              <li class="polyTation">What are web components</li>
-              <li>What are web components</li>
             </ul>
-          </paper-material>
-           <a data-route="introduction" href="/slide-one" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0"></paper-fab></a>
+          <!-- </paper-material> -->
+           <a data-route="introduction" href="/slide-one" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab></a>
         </div>
     </template>
     <script>

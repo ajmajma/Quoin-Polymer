@@ -1,0 +1,158 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<dom-module id="my-polymer-elements">
+    <style>
+    :host {
+        height: 100%;
+        background-color: #fff;
+        font-weight: 200;
+    }
+
+    h2 {
+        width: 100%;
+        margin: 0;
+        background-color: #8BC34A;
+        font-weight: 200;
+        font-size: 48px;
+        padding: 60px 60px;
+        color: #fff;
+    }
+
+    h3 {
+        color: #8BC34A;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        margin-bottom: 30px
+    }
+
+    hr {
+        width: 100%;
+        color: rgb(100, 181, 246);
+        background-color: #fff;
+        opacity: 1;
+        border: 0;
+        height: 1px;
+    }
+
+    .bottomWrapper {
+        padding: 60px;
+    }
+
+    .innerBottomWrap {
+        border-left: 5px solid #8BC34A;
+        padding-left: 20px;
+    }
+
+    .elementContainer {
+        width: 23%;
+        margin: 1%;
+        height: 200px;
+        background-color: #8BC34A;
+        float: left;
+    }
+
+    google-map {
+        width: 100%;
+        height: 80%;
+    }
+    </style>
+    <template>
+        <div class="fullbleed">
+            <h2 class="titles">Polymer Elements</h2>
+            <div class="bottomWrapper">
+                <h3 class="titles">Growing library of building blocks for developers</h3>
+                <div class="innerBottomWrap" id="bottomWrap">
+                    <div class="elementContainer">
+                        Iron
+                        <hr> Core building blocks
+                    </div>
+                    <div class="elementContainer">
+                        Paper
+                        <hr> Material Design
+                    </div>
+                    <div class="elementContainer">
+                        Google API
+                        <google-map latitude="37.77493" longitude="-122.41942"></google-map>
+                    </div>
+                    <div class="elementContainer">
+                        Gold
+                        <hr> Ecommerce
+                    </div>
+                    <div class="elementContainer">
+                        Neon
+                        <hr> Animation
+                    </div>
+                    <div class="elementContainer">
+                        Platinum
+                        <hr> Service Worker!! Push notification, offline caching
+                    </div>
+                    <div class="elementContainer">
+                        Molecules (brand new?)
+                        <hr> Third party wrappers
+                    </div>
+                    <a data-route="build-setup" href="/build-setup" class="next" id="next">So how Do I set it up?</a>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'my-polymer-elements',
+            behaviors: [
+                Polymer.NeonSharedElementAnimatableBehavior,
+                Polymer.NeonAnimatableBehavior
+            ],
+            properties: {
+                items: {
+                    type: Array,
+                    notify: true,
+                },
+                animationConfig: {
+                    value: function() {
+                        var squares = Polymer.dom(this.root).querySelectorAll('.elementContainer');
+                        var squaresArray = Array.prototype.slice.call(squares);
+
+                        var titles = Polymer.dom(this.root).querySelectorAll('.titles');
+                        var titlesArray = Array.prototype.slice.call(titles);
+
+                        return {
+                            'entry': [{
+                                name: 'scale-up-animation',
+                                node: this
+                            }, {
+                                name: 'cascaded-animation',
+                                animation: 'scale-up-animation',
+                                timing: {
+                                    delay: 600,
+                                    duration: 800
+                                },
+                                nodes: squaresArray
+                            }, {
+                                name: 'cascaded-animation',
+                                animation: 'slide-from-left-animation',
+                                timing: {
+                                    delay: 400
+                                },
+                                nodes: titlesArray
+                            }],
+                            'exit': [{
+                                node: this,
+                                name: 'slide-right-animation'
+                            }]
+                        };
+                    }
+                }
+            }
+        });
+    })();
+    </script>
+</dom-module>

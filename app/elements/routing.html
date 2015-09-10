@@ -39,6 +39,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app.route = 'web-components';
     });
 
+    page('/element-setup', function () {
+      app.route = 'element-setup';
+    });
+
+    page('/polymer-elements', function () {
+      app.route = 'polymer-elements';
+    });
+
+     page('/build-setup', function () {
+      app.route = 'build-setup';
+    });
+
     page('/users/:name', function (data) {
       app.route = 'user-info';
       app.params = data.params;
@@ -50,7 +62,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     // add #! before urls
     page({
-      hashbang: true
+      hashbang: false
     });
 
 

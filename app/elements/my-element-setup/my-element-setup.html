@@ -1,0 +1,283 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<dom-module id="my-element-setup">
+    <style>
+    :host {
+        height: 100%;
+        background-color: #fff;
+        font-weight: 200;
+    }
+
+    h2 {
+        width: 100%;
+        margin: 0;
+        background-color: #CDDC39;
+        font-weight: 200;
+        font-size: 48px;
+        padding: 60px 60px;
+        color: #fff;
+    }
+    h3 {
+        color: #CDDC39;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        margin-bottom: 30px
+    }
+    hr {
+      width: 100%;
+      color: rgb(100, 181, 246);
+      background-color: #fff;
+      opacity: 1;
+      border: 0;
+      height: 1px;
+    }
+    .bottomWrapper {
+        padding: 60px;
+    }
+    .innerBottomWrap {
+        border-left: 5px solid #CDDC39;
+        padding-left: 20px;
+    }
+
+    .listItem {
+        font-size: 20px;
+        line-height: 16px;
+        padding-bottom: 30px;
+        font-weight: 200;
+        color: #757575;
+    }
+
+    .marked-element-contain {
+        width: 58%;
+        background-color: #fafafa;
+        padding-left: 2%;
+        float: left;
+        position: relative;
+        display: block;
+    }
+    .marked-comments {
+        width: 40%;
+        float: left;
+        color: #212121;
+        display: inline-block;
+        float: left;
+        font-size: 13px;
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: .1px;
+        line-height: 24px;
+        margin-bottom: 30px;
+        padding-bottom: 0;
+    }
+
+    #moduleH {
+        border-left: 5px solid #CDDC39;
+        transition: opacity 0.5s linear;
+        opacity: 0;
+        position: absolute;
+        top: 28px;
+        left: 0;
+        right: 0;
+        height: 586px;
+        background-color: rgba(205, 220, 57, 0.29);
+    }
+
+    #styleH {
+        border-left: 5px solid #CDDC39;
+        transition: opacity 0.5s linear;
+        opacity: 0;
+        position: absolute;
+        top: 73px;
+        left: 0;
+        right: 0;
+        height: 108px;
+        background-color: rgba(205, 220, 57, 0.29);
+    }
+
+    #templateH {
+        border-left: 5px solid #CDDC39;
+        transition: opacity 0.5s linear;
+        opacity: 0;
+        position: absolute;
+        top: 208px;
+        left: 0;
+        right: 0;
+        height: 47px;
+        background-color: rgba(205, 220, 57, 0.29);
+    }
+
+    #scriptH {
+        border-left: 5px solid #CDDC39;
+        transition: opacity 0.5s linear;
+        opacity: 0;
+        position: absolute;
+        top: 269px;
+        left: 0;
+        right: 0;
+        height: 330px;
+        background-color: rgba(205, 220, 57, 0.29);
+    }
+
+    </style>
+    <template>
+        <div>
+            <h2 id="pageTitle">Element Setup</h2>
+            <div class="bottomWrapper transitionAnim">
+
+            <h3 id="subTitle">Individual Polymer Element</h3>
+            <div class="marked-comments" id="markedComments">
+            <strong on-click="highlightModule">  <iron-icon icon="zoom-in"></iron-icon>Dom Module Element</strong>
+            <p>Creation and definition of element</p>
+            <p>Wrapper in dom-module tag</p>
+            <p>Name with id tag</p>
+            <br/>
+            <strong on-click="highlightStyle"><iron-icon icon="zoom-in"></iron-icon>Style Encapsulation</strong>
+            <p>Style completely encapsulated</p>
+            <p>Can import style sheets here above style tag</p>
+            <br/>
+            <strong on-click="highlightTemplate"><iron-icon icon="zoom-in"></iron-icon>Template</strong>
+            <p>Template Logic here</p>
+            <p>Accepts double bracket binding much like Angular</p>
+            <br/>
+            <strong on-click="highlightPolymer"><iron-icon icon="zoom-in"></iron-icon>Polymer Script</strong>
+            <p>Polymer logic here. All javascript logic in here</p>
+            </div>
+
+            <div class="marked-element-contain" id="elementContain">
+                <marked-element>
+                <script type="text/markdown">
+                ```code
+                <!-- Component Definition -->
+                <dom-module id="my-element-setup">
+
+                    <!-- Encapsulated styles -->
+                    <style>
+                    :host {
+                        height: 100%;
+                        @apply(--layout-horizontal);
+                        @apply(--layout-center-center);
+                    }
+                    </style>
+
+                    <!-- Component template -->
+                    <template>
+                        <p>{{item}}</p>
+                    </template>
+
+                    <scrpt>
+                    //polymer js logic
+                    (function() {
+                        Polymer({
+                            is: 'my-element-setup',
+                            behaviors: [
+                                Polymer.NeonSharedElementAnimatableBehavior,
+                                Polymer.NeonAnimatableBehavior
+                            ],
+                            //delcaration
+                            properties: {
+                                item: {
+                                    type: String,
+                                    value: "I am a declared property!",
+                                }
+                            },
+                            ready: function() {
+                                //run on component render
+                            }
+                        });
+                    })();
+                   </scrpt>
+                </dom-module>
+                ```
+                </script>
+                </marked-element>
+                <div id="moduleH"></div>
+                <div id="styleH"></div>
+                <div id="templateH"></div>
+                <div id="scriptH"></div>
+            </div>
+            </div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'my-element-setup',
+            behaviors: [
+                Polymer.NeonSharedElementAnimatableBehavior,
+                Polymer.NeonAnimatableBehavior
+            ],
+            highlightModule: function() {
+                  var module = document.querySelector('#moduleH');
+                  module.style.opacity = '1';
+                  setTimeout(function(){
+                            module.style.opacity = '0';
+                  }, 3000);
+            },
+            highlightStyle: function() {
+                  var module = document.querySelector('#styleH');
+                  module.style.opacity = '1';
+                  setTimeout(function(){
+                            module.style.opacity = '0';
+                  }, 3000);
+            },
+            highlightTemplate: function() {
+                  var module = document.querySelector('#templateH');
+                  module.style.opacity = '1';
+                  setTimeout(function(){
+                            module.style.opacity = '0';
+                  }, 3000);
+            },
+            highlightPolymer: function() {
+                  var module = document.querySelector('#scriptH');
+                  module.style.opacity = '1';
+                  setTimeout(function(){
+                            module.style.opacity = '0';
+                  }, 3000);
+            },
+            properties: {
+                items: {
+                    type: Array,
+                    notify: true,
+                },
+                animationConfig: {
+                    value: function() {
+                        return {
+                            'entry': [{
+                                name: 'slide-from-left-animation',
+                                node: this
+                            },{
+                                node: this.$.pageTitle,
+                                timing: {delay: 200},
+                                name: 'slide-down-animation'
+                            },{
+                                node: this.$.subTitle,
+                                timing: {delay: 250},
+                                name: 'slide-from-left-animation'
+                            },{
+                                node: this.$.markedComments,
+                                timing: {delay: 350},
+                                name: 'slide-from-left-animation'
+                            },{
+                                node: this.$.elementContain,
+                                timing: {delay: 400},
+                                name: 'scale-up-animation'
+                            }],
+                            'exit': [{
+                                node: this,
+                                name: 'slide-right-animation'
+                            }]
+                        };
+                    }
+                }
+            }
+        });
+    })();
+    </script>
+</dom-module>

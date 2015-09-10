@@ -11,27 +11,75 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style>
     :host {
         height: 100%;
-        @apply(--layout-horizontal);
-        @apply(--layout-center-center);
+        background-color: #fff;
+        font-weight: 200;
     }
 
-    ul {
-        font-size: 18px;
+    h2 {
+        width: 100%;
+        margin: 0;
+        background-color: #03a9f4;
+        font-weight: 200;
+        font-size: 48px;
+        padding: 60px 60px;
+        color: #fff;
+    }
+    h3 {
+        color: #03a9f4;
+        font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    margin-bottom: 30px
+    }
+    hr {
+      width: 100%;
+      color: rgb(100, 181, 246);
+      background-color: #fff;
+      opacity: 1;
+      border: 0;
+      height: 1px;
+    }
+    p {
+      font-size: 13px;
+      margin: 10px 0 0 0;
+      line-height: 20px;
+      height: 40px;
+      color: #fff;
+    }
+    .bottomWrapper {
+        padding: 60px;
+    }
+    .innerBottomWrap {
+        border-left: 5px solid #03a9f4;
+        padding-left: 20px;
     }
 
-    li {
-        padding: 0 0 15px 0;
+    .listItem {
+    font-size: 20px;
+    line-height: 16px;
+    padding-bottom: 30px;
+    font-weight: 200;
+    color: #757575;
     }
+
     </style>
     <template>
         <div>
-            <h2>Introduction</h2>
-            <ul class="circleList" id="circleList">
-                <li>Polymer is a library for creating Web Components</li>
-                <li>A google project that has been part of the web platform team on chromeBegan about 3 years ago</li>
-                <li>1.0 just realesed early in 2015, "production ready"</li>
-            </ul>
-            <a data-route="web-components" href="/web-components" class="next" id="next"><div class="webCompTransition">Web Components</div></a>
+            <h2>What Is Polymer?</h2>
+
+            <div class="bottomWrapper">
+                <h3 id="subTitle">A New Javascript Library for Web Components</h3>
+                <div class="innerBottomWrap" id="bottomWrap">
+                    <div class="listItem">Polymer is a divbrary for creating Web Components. Not a framework - a library.</div>
+                    <div class="listItem">A google project that has been part of the web platform team on chromeBegan about 3 years ago</div>
+                    <div class="listItem">1.0 just realesed early in 2015, "production ready"</div>
+                    <div class="listItem">The goal is to provide custom and interoperabil elements</div>
+                    <div class="listItem">Library (1.0) ranges from 19k 42k</div>
+                    <div class="listItem">It is a growing collection of custom "bits and peices", as apposed to silod app framekworks</div>
+                    <div class="listItem">It is built off of Web Components</div>
+                </div>
+            </div>
+            <a data-route="web-components" href="/web-components" class="next" id="next"><div class="webCompTransition">What are Web Components?</div></a>
 
         </div>
     </template>
@@ -50,10 +98,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 },
                 animationConfig: {
                     value: function() {
+                        var listItem = Polymer.dom(this.root).querySelectorAll('.listItem');
+                        var listArray = Array.prototype.slice.call(listItem);
+
                         return {
                             'entry': [{
-                                name: 'slide-from-left-animation',
+                                name: 'scale-up-animation',
                                 node: this
+                            },{
+                                name: 'slide-from-left-animation',
+                                timing: {delay: 200},
+                                node: this.$.subTitle
+                            },
+                            {
+                                name: 'slide-down-animation',
+                                timing: {delay: 100},
+                                node: this.$.bottomWrap
+                            },{
+                                name: 'cascaded-animation',
+                                animation: 'transform-animation',
+                                timing: {delay: 400},
+                                transformFrom: 'translateX(100%)',
+                                nodes: listArray
                             }],
                             'exit': [{
                                 node: this,

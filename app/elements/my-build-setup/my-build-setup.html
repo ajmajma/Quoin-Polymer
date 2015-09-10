@@ -1,0 +1,112 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<dom-module id="my-polymer-build">
+    <style>
+    :host {
+        height: 100%;
+        background-color: #fff;
+        font-weight: 200;
+    }
+
+    h2 {
+        width: 100%;
+        margin: 0;
+        background-color: #00BCD4;
+        font-weight: 200;
+        font-size: 48px;
+        padding: 60px 60px;
+        color: #fff;
+    }
+    h3 {
+        color: #00BCD4;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        margin-bottom: 30px
+    }
+    hr {
+      width: 100%;
+      color: rgb(100, 181, 246);
+      background-color: #fff;
+      opacity: 1;
+      border: 0;
+      height: 1px;
+    }
+    .bottomWrapper {
+        padding: 60px;
+    }
+    .innerBottomWrap {
+        border-left: 5px solid #00BCD4;
+        padding-left: 20px;
+    }
+
+    .listItem {
+        font-size: 20px;
+        line-height: 16px;
+        padding-bottom: 30px;
+        font-weight: 200;
+        color: #757575;
+    }
+    </style>
+    <template>
+        <div class="fullbleed">
+            <h2>Build set up</h2>
+            <div class="bottomWrapper">
+                <h3 id="subTitle">Individual Polymer Element</h3>
+                <div class="innerBottomWrap" id="bottomWrap">
+
+                    <ul>
+                        <li>Set up project folder - bower & npm for dependancy management</li>
+                        <li>include web-components (or web-components-lite) + polymer.html</li>
+                        <li>Need to run local dev server - npm polyserve works right out of the box</li>
+                        <li>for importing link <code>rel="import" href="elements/elements.html"</code></li>
+                        <li>Grunt/gulp for task for automation</li>
+                        <li>Unit testing using Web Component Tester</li>
+                    </ul>
+
+                    <a data-route="element-setup" href="/element-setup">
+                        <p class="webCompTransition">What Does an Element look like?</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'my-polymer-build',
+            behaviors: [
+                Polymer.NeonSharedElementAnimatableBehavior,
+                Polymer.NeonAnimatableBehavior
+            ],
+            properties: {
+                items: {
+                    type: Array,
+                    notify: true,
+                },
+                animationConfig: {
+                    value: function() {
+                        return {
+                            'entry': [{
+                                name: 'slide-from-left-animation',
+                                node: this
+                            }],
+                            'exit': [{
+                                node: this,
+                                name: 'slide-right-animation'
+                            }]
+                        };
+                    }
+                }
+            }
+        });
+    })();
+    </script>
+</dom-module>

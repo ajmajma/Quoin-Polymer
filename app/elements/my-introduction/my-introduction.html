@@ -9,6 +9,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <dom-module id="my-introduction">
     <style>
+    ::host {
+      visibility: hidden;
+    }
     neon-animated-pages {
         height: 100%;
     }
@@ -16,30 +19,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .fullbleed {
         height: 100%;
         padding: 40px;
-        background-color: #3f51b5;
+        background-color: #283593;
     }
 
      .next {
-      position: absolute;
-      bottom: 25px;
-      right: 25px;
+      display: block;
+      margin: 0 auto;
+      width: 60px;
        --paper-fab-background: var(--paper-light-blue-500);
       --paper-fab-keyboard-focus-background: var(--paper-light-blue-900);
     }
 
     h2 {
-      font-weight: 400;
+      text-align: center;
+      padding-top: 120px;
+      font-weight: 200;
       font-size: 48px;
       margin: 20px 0;
-      color: #fff;
+      color: #fafafa;
     }
     h3 {
-      color: #fff;
-      display: table-caption;
+      color: #fafafa;
+      text-align: center;
       margin: 0 0 15px;
       height: 64px;
       font-size: 20px;
-      font-weight: 500;
+      font-weight: 200;
       line-height: 28px;
     }
     hr {
@@ -52,24 +57,64 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
     p {
       font-size: 13px;
-    margin: 10px 0 0 0;
-    line-height: 20px;
-    height: 40px;
-    color: #fff;
+      margin: 10px 0 0 0;
+      line-height: 20px;
+      height: 40px;
+      color: #fff;
     }
 
     a{
       text-decoration: none;
       color: #fff;
     }
+
+    .big {
+      display: block;
+      margin: 0 auto;
+      --iron-icon-height: 120px;
+      --iron-icon-width: 120px;
+      color: #FF4081;
+    }
+
+    .circle {
+        color: #fafafa;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 600px;
+        height: 600px;
+        margin: 0 auto;
+        border-radius: 50%;
+        background: #fff;
+        cursor: pointer;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    }
+
+     .circle2 {
+        color: #fff;
+        padding: 20px;
+        box-sizing: border-box;
+        width: 580px;
+        height: 580px;
+        margin: 0;
+        border-radius: 50%;
+        background: #283593;
+        cursor: pointer;
+    }
+
     </style>
     <template>
-        <div class="fullbleed">
-            <h2 class="polyTation">Welcome</h2>
-            <h3 class="polyTation">Lorem Lorem</h3>
-            <hr class="polyTation">
-            <p  class="polyTation">Lorem Ipsum</p>
-             <a data-route="introduction" href="/introduction" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" ></paper-fab></a>
+        <div class="fullbleed" id="testAnim">
+
+            <div class="circle circleAnim">
+                <div class="circle2 circleAnim">
+                  <h2 class="introCenter">Polymer Tech Talk</h2>
+                        <iron-icon icon="polymer" class="big introCenter"></iron-icon>
+                  <h3 class="introCenter">Alex Moser</h3>
+                  <a data-route="introduction" href="/introduction" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="introCenter"></paper-fab></a>
+                </div>
+            </div>
+
+
         </div>
     </template>
     <script>
@@ -78,7 +123,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             is: 'my-introduction',
             behaviors: [
                 Polymer.NeonSharedElementAnimatableBehavior,
-                Polymer.NeonAnimatableBehavior
+                Polymer.NeonAnimatableBehavior,
+                Polymer.NeonAnimationRunnerBehavior
             ],
             properties: {
                 items: {
@@ -87,17 +133,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 },
                 animationConfig: {
                     value: function() {
-                       var poly = Polymer.dom(this.root).querySelectorAll('.polyTation');
+                      var poly = Polymer.dom(this.root).querySelectorAll('.circleAnim');
                       var polyArray = Array.prototype.slice.call(poly);
+
+                      var intro = Polymer.dom(this.root).querySelectorAll('.introCenter');
+                      var introArray = Array.prototype.slice.call(intro);
                         return {
                             'entry': [{
                               node: this,
                               name: 'scale-up-animation'
                             },{
                                 name: 'cascaded-animation',
-                                animation: 'transform-animation',
-                                transformFrom: 'translateY(60vh)',
+                                timing: {delay: 400},
+                                animation: 'scale-up-animation',
                                 nodes: polyArray
+                            },{
+                                name: 'cascaded-animation',
+                                timing: {delay: 800},
+                                animation: 'scale-up-animation',
+                                nodes: introArray
                             },{
                               node: this.$.next,
                               name: 'scale-up-animation'
@@ -109,6 +163,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         };
                     }
                 }
+            },
+            attached: function() {
+              this.style.visibility = 'visible';
+              this.playAnimation('entry');
             }
         });
     })();

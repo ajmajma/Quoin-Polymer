@@ -50,7 +50,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <template is="dom-bind" id="app">
         <paper-drawer-panel id="paperDrawerPanel" force-narrow="true">
             <!-- Drawer Scroll Header Panel -->
-         <!--    <paper-scroll-header-panel drawer fixed>
+            <paper-scroll-header-panel drawer fixed>
 
                 <paper-toolbar id="drawerToolbar">
                     <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
@@ -58,28 +58,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </paper-toolbar>
 
                 <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
-                    <a data-route="slide-one" href="/slide-one">
-                        <iron-icon icon="home"></iron-icon>
-                        <span>Slide One</span>
-                    </a>
                     <a data-route="home" href="/">
                         <iron-icon icon="home"></iron-icon>
-                        <span>Polymer</span>
+                        <span>Title Page</span>
                     </a>
-                    <a data-route="about" href="/about">
+                    <a data-route="introduction" href="/introduction">
+                        <iron-icon icon="home"></iron-icon>
+                        <span>Introduction</span>
+                    </a>
+                    <a data-route="slide-one" href="/slide-one">
+                        <iron-icon icon="home"></iron-icon>
+                        <span>Polymer Introduction</span>
+                    </a>
+                    <a data-route="web-components" href="/web-components">
+                        <iron-icon icon="home"></iron-icon>
+                        <span>Web Components</span>
+                    </a>
+                    <a data-route="polymer-intro" href="/polymer-intro">
                         <iron-icon icon="info"></iron-icon>
-                        <span>About</span>
+                        <span>About Polymer</span>
                     </a>
-                    <a data-route="contact" href="/contact">
-                        <iron-icon icon="mail"></iron-icon>
-                        <span>Resources</span>
+                    <a data-route="polymer-elements" href="/polymer-elements">
+                        <iron-icon icon="info"></iron-icon>
+                        <span>Polymer Elements</span>
+                    </a>
+                    <a data-route="build-setup" href="/build-setup">
+                        <iron-icon icon="info"></iron-icon>
+                        <span>Build Setup</span>
+                    </a>
+                    <a data-route="element-setup" href="/element-setup">
+                        <iron-icon icon="info"></iron-icon>
+                        <span>Element Setup</span>
                     </a>
                 </paper-menu>
-            </paper-scroll-header-panel> -->
+            </paper-scroll-header-panel>
             <!-- Main Area -->
             <paper-scroll-header-panel main condenses>
                 <!-- Main Toolbar -->
-
+                  <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
                 <!-- Main Content -->
                 <div class="content">
                     <neon-animated-pages id="pages" attr-for-selected="data-route"  selected="{{route}}" class="animationStyleFix">
@@ -93,6 +109,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <intro-wrapper data-route="polymer-intro"></intro-wrapper>
 
                         <web-components-wrapper data-route="web-components"></web-components-wrapper>
+
+                        <my-element-setup data-route="element-setup"></my-element-setup>
+
+                        <my-polymer-build data-route="build-setup"></my-polymer-build>
+
+                        <my-polymer-elements data-route="polymer-elements"></my-polymer-elements>
                            <!--  <neon-animated-pages id="pages" selected="0" data-route="about">
                                 <animated-grid on-tile-click="_onTileClick" id="grid"></animated-grid>
                                 <fullsize-page-with-card id="fullsize-card" hero-id="hero" on-click="_onFullsizeClick">

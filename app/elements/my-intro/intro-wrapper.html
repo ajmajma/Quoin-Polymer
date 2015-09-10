@@ -30,13 +30,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Polymer({
         is: 'intro-wrapper',
          behaviors: [
-          Polymer.NeonSharedElementAnimatableBehavior
+          Polymer.NeonSharedElementAnimatableBehavior,
         ],
         properties: {
           items: {
             type: Array,
             notify: true,
-          }
+          },
+            animationConfig: {
+              value: function() {
+                  return {
+                      'entry': [{
+                          name: 'scale-up-animation',
+                          node: this
+                      }],
+                      'exit': [{
+                          name: 'slide-right-animation',
+                          node: this
+                      }]
+                  }
+
+                }
+              }
         },
         _onCircleClick: function(event) {
         this.$.pages.selected = 1;
