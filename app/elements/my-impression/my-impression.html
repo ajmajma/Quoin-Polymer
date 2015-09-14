@@ -74,13 +74,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <h2 id="pageTitle">First Impression <a data-route="my-resources" href="/my-resources" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab></a></h2>
             <div class="bottomWrapper transitionAnim">
                 <h3 id="subTitle">Initial thoughts on Polymer</h3>
-                 <div class="innerBottomWrap animateMe" id="bottomWrap">
+                <div class="innerBottomWrap animateMe" id="bottomWrap">
                     <div class="listItem">The Available elements make it very easy to get up and running</div>
                     <div class="listItem">The idea of creating a custom element for anything from a button to an entire service is great</div>
+                    <div class="listItem">It has a bunch of caveats, I think this will get smoothed out when it matures</div>
                     <div class="listItem">Could use alongside current JS frameworks</div>
                     <div class="listItem">Could potentially be very powerful</div>
                     <div class="listItem">Documentation/User base not great, but it is still new</div>
-                    <div class="listItem">Web Components are not universally adopted (yet?)</div>
+                    <div class="listItem">Web Components are not universally adopted (yet?) - but are slowly being adopted. There are also plenty of polyfills.</div>
                 </div>
             </div>
         </div>
@@ -100,14 +101,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 },
                 animationConfig: {
                     value: function() {
+                        var titles = Polymer.dom(this.root).querySelectorAll('.listItem');
+                        var titlesArray = Array.prototype.slice.call(titles);
                         return {
                             'entry': [{
                                 name: 'scale-up-animation',
                                 node: this
                             }, {
                                 name: 'slide-down-animation',
-                                timing: {delay: 200},
+                                timing: {
+                                    delay: 200
+                                },
                                 node: this.$.pageTitle
+                            }, {
+                                name: 'slide-down-animation',
+                                timing: {
+                                    delay: 250
+                                },
+                                node: this.$.subTitle
+                            }, {
+                                name: 'slide-down-animation',
+                                timing: {
+                                    delay: 200
+                                },
+                                node: this.$.pageTitle
+                            }, {
+                                name: 'cascaded-animation',
+                                 animation: 'transform-animation',
+                                timing: {
+                                    delay: 200
+                                },
+                                transformFrom: 'translateY(250%)',
+                                nodes: titlesArray
                             }],
                             'exit': [{
                                 node: this,

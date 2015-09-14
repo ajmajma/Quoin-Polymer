@@ -69,6 +69,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: 200;
         color: #757575;
     }
+    google-map {
+        height: 300px;
+    }
+
+    .codeLeft {
+        display: block;
+        float: left;
+        font-size: 14px;
+        width: 60%;
+    }
+
+    .codeRight {
+        display: block;
+        float: left;
+        width: 40%;
+    }
+    .specialList {
+        color: #fff;
+        background-color: #00BCD4;
+        padding: 10px;
+        margin:10px 0;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    .specialList p {
+        font-size: 18px;
+        padding-bottom: 30px;
+    }
+
+    .clear {
+        clear: both;
+    }
     </style>
     <template>
         <div class="fullbleed">
@@ -76,14 +108,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <div class="bottomWrapper animateMe">
                 <h3 id="subTitle animateMe">Get started building with Polymer</h3>
                 <div class="innerBottomWrap animateMe" id="bottomWrap">
-                    <div class="listItem animateMe">Set up project folder - bower & npm for dependancy management</div>
+                    <div class="listItem animateMe">You can run very light - just import web components and whatever elements you want</div>
+                    <div class="listItem animateMe specialList">
+                        <div class="codeLeft">
+                        <p>Simple example from the Polymer website</p>
+                        <marked-element>
+                        <script type="text/markdown">
+                        ```code
+                        <!-- Polyfill Web Components support for older browsers -->
+                        <scrpt src="components/webcomponentsjs/webcomponents-lite.min.js"></scrpt>
+
+                        <!-- Import element -->
+                        <link rel="import" href="components/google-map/google-map.html">
+
+                        <!-- Use element -->
+                        <google-map latitude="37.790" longitude="-122.390"></google-map>
+                        ```
+                        </script>
+                        </marked-element>
+
+                        </div>
+                         <div class="codeRight">
+                            <google-map latitude="37.790" longitude="-122.390"></google-map>
+                         </div>
+                         <div class="clear"></div>
+                    </div>
+                    <div class="listItem animateMe">You can scaffold out a production project</div>
+                    <div class="listItem animateMe"> Set up project folder - bower & npm for dependancy management</div>
                     <div class="listItem animateMe">Include web-components (or web-components-lite) + polymer.html</div>
-                    <div class="listItem animateMe">Need to run local dev server - npm polyserve works right out of the box, butt here are more options depending on your needs.</div>
+                    <div class="listItem animateMe">Need to run local dev server - npm polyserve works right out of the box, but there are more options depending on your needs.</div>
                     <div class="listItem animateMe">For importing link <code>rel="import" href="elements/elements.html"</code></div>
-                    <div class="listItem animateMe">Grunt/gulp for task for automation</div>
+                    <div class="listItem animateMe">Grunt/gulp for task for automation - this project is using gulp</div>
                     <div class="listItem animateMe">Unit testing using Web Component Tester</div>
                     <div class="listItem animateMe"><a href="https://github.com/visionmedia/page.js" target="_blank">Page.js</a> for routing</div>
-                </div>
             </div>
         </div>
     </template>

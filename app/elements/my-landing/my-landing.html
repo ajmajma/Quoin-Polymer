@@ -23,12 +23,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background-color: #d81b60;
     }
 
-    .next {
-        position: absolute;
-        top: 40px;
-        right: 40px;
-    }
-
     .fab {
         --paper-fab-background: var(--paper-blue-500);
         --paper-fab-keyboard-focus-background: var(--paper-blue-900);
@@ -87,19 +81,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="fullbleed" id="fullbleed">
             <!-- <paper-material elevation="1" class="startCard" id="startCard"> -->
             <h2 class="polyTation" id="topBar">Polymer Talk</h2>
-            <h3 class="polyTation">Covering</h3>
+            <h3 class="polyTation">A Polymer presentation built with Polymer</h3>
             <hr class="polyTation">
             <ul>
                 <li class="polyTation">What is Polymer?</li>
-                <li class="polyTation">What are are components?</li>
+                <li class="polyTation">What are are web components?</li>
                 <li class="polyTation">More on Polymer</li>
                 <li class="polyTation">Polymer Elements</li>
-                <li class="polyTation">Polymer build</li>
+                <li class="polyTation">Setting up a project</li>
                 <li class="polyTation">What does a Polymer element look like?</li>
                 <li class="polyTation">Initial thoughts on Polymer</li>
             </ul>
             <!-- </paper-material> -->
-            <a data-route="introduction" href="/slide-one" class="next" id="next">
+            <a data-route="introduction" href="/slide-one" class="next polyTation" id="next">
                 <paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab>
             </a>
         </div>
@@ -138,12 +132,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                 animation: 'transform-animation',
                                 transformFrom: 'translateY(60vh)',
                                 nodes: polyArray
-                            }, {
-                                node: this.$.next,
-                                timing: {
-                                    delay: 300
-                                },
-                                name: 'scale-up-animation'
                             }],
                             'exit': [{
                                 name: 'hero-animation',
