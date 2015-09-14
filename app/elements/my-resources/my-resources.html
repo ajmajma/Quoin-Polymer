@@ -7,7 +7,7 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<dom-module id="my-impression">
+<dom-module id="my-resources">
     <style>
     :host {
         height: 100%;
@@ -17,7 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     h2 {
         width: 100%;
         margin: 0;
-        background-color: #FF9800;
+        background-color: #9C27B0;
         font-weight: 200;
         font-size: 48px;
         padding: 60px 60px;
@@ -25,7 +25,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     h3 {
-        color: #FF9800;
+        color: #9C27B0;
         font-size: 24px;
         font-weight: 400;
         line-height: 32px;
@@ -46,7 +46,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     .innerBottomWrap {
-        border-left: 5px solid #FF9800;
+        border-left: 5px solid #9C27B0;
         padding-left: 20px;
     }
 
@@ -60,20 +60,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
     <template>
         <div>
-            <h2 id="pageTitle">Polymer Resources</h2>
+            <h2 id="pageTitle">Polymer Resources </h2>
             <div class="bottomWrapper transitionAnim">
-                <h3 id="subTitle">Subject to change as community grows</h3>
-                <div>https://elements.polymer-project.org/</div>
-                <div>https://www.polymer-project.org/1.0/</div>
-                <div>https://www.youtube.com/watch?v=fD2As5RmM8Q</div>
-                <div>https://www.youtube.com/playlist?list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN</div>
+                <h3 id="subTitle">Resources used for this presentation</h3>
+                <div>Polymer Elements - https://elements.polymer-project.org/</div>
+                <div>Polymer 1.0 - https://www.polymer-project.org/1.0/</div>
+                <div>Polymer 2015 talk - https://www.youtube.com/watch?v=fD2As5RmM8Q</div>
+                <div>Polycasts with Rob Dodson - https://www.youtube.com/playlist?list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN</div>
+                <div>Polymer Starter Kit - https://developers.google.com/web/tools/polymer-starter-kit/index?hl=en</div>
             </div>
         </div>
     </template>
     <script>
     (function() {
         Polymer({
-            is: 'my-impression',
+            is: 'my-resources',
             behaviors: [
                 Polymer.NeonSharedElementAnimatableBehavior,
                 Polymer.NeonAnimatableBehavior

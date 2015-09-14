@@ -7,61 +7,59 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-
 <dom-module id="intro-wrapper">
-  <style>
-     neon-animated-pages {
+    <style>
+    neon-animated-pages {
         height: 100%;
-      }
-      .fullbleed {
+    }
+
+    .fullbleed {
         height: 100%;
-      }
-  </style>
-  <template>
-  <div class="fullbleed">
-      <neon-animated-pages id="pages" selected="0">
-        <circles-page on-circle-click="_onCircleClick"></circles-page>
-        <squares-page on-click="_onSquaresClick"></squares-page>
-      </neon-animated-pages>
-</div>
+    }
+    </style>
+    <template>
+        <div class="fullbleed">
+            <neon-animated-pages id="pages" selected="0">
+                <circles-page on-circle-click="_onCircleClick"></circles-page>
+                <squares-page on-click="_onSquaresClick"></squares-page>
+            </neon-animated-pages>
+        </div>
     </template>
-  <script>
-    (function () {
-      Polymer({
-        is: 'intro-wrapper',
-         behaviors: [
-          Polymer.NeonSharedElementAnimatableBehavior,
-        ],
-        properties: {
-          items: {
-            type: Array,
-            notify: true,
-          },
-            animationConfig: {
-              value: function() {
-                  return {
-                      'entry': [{
-                          name: 'scale-up-animation',
-                          node: this
-                      }],
-                      'exit': [{
-                          name: 'slide-right-animation',
-                          node: this
-                      }]
-                  }
+    <script>
+    (function() {
+        Polymer({
+            is: 'intro-wrapper',
+            behaviors: [
+                Polymer.NeonSharedElementAnimatableBehavior,
+            ],
+            properties: {
+                items: {
+                    type: Array,
+                    notify: true,
+                },
+                animationConfig: {
+                    value: function() {
+                        return {
+                            'entry': [{
+                                name: 'scale-up-animation',
+                                node: this
+                            }],
+                            'exit': [{
+                                name: 'slide-right-animation',
+                                node: this
+                            }]
+                        }
 
+                    }
                 }
-              }
-        },
-        _onCircleClick: function(event) {
-        this.$.pages.selected = 1;
-        },
-        _onSquaresClick: function(event) {
-        this.$.pages.selected = 0;
-        }
-      });
+            },
+            _onCircleClick: function(event) {
+                this.$.pages.selected = 1;
+            },
+            _onSquaresClick: function(event) {
+                this.$.pages.selected = 0;
+            }
+        });
     })();
-  </script>
-
-
+    </script>
 </dom-module>

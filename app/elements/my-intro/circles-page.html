@@ -33,6 +33,10 @@
         height: 1px;
     }
 
+    b {
+        color: #E91E63;
+    }
+
     p {
         font-size: 13px;
         margin: 10px 0 0 0;
@@ -87,7 +91,7 @@
                     <div class="listItem">Polymer lets you build these custom elements</div>
                     <div class="listItem">Library (1.0) ranges from 19k 42k</div>
                     <div class="listItem">Currently using shim "shadyDOM", will dissapear when other browser ship web components</div>
-                    <div class="listItem">So How does it fit in with
+                    <div class="listItem">So how do <b id="elements">polymer elements</b> it fit in with
                         <div class="circle">existing frameworks</div> ?</div>
                     <div class="listItem">Polymer currently has a catalog of working elements to jumpstart your work</div>
                     </ul>
@@ -130,6 +134,12 @@ Polymer({
                         name: 'cascaded-animation',
                         animation: 'slide-down-animation',
                         nodes: exitArray
+                    }, {
+                        node: this.$.next,
+                        timing: {
+                            delay: 300
+                        },
+                        name: 'scale-up-animation'
                     }],
                     'exit': [{
                         name: 'hero-animation',

@@ -15,6 +15,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: 200;
     }
 
+    .next {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+
+    .fab {
+        --paper-fab-background: var(--paper-cyan-200);
+        --paper-fab-keyboard-focus-background: var(--paper-cyan-900);
+    }
+
     h2 {
         width: 100%;
         margin: 0;
@@ -24,6 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 60px 60px;
         color: #fff;
     }
+
     h3 {
         color: #00BCD4;
         font-size: 24px;
@@ -31,17 +43,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         line-height: 32px;
         margin-bottom: 30px
     }
+
     hr {
-      width: 100%;
-      color: rgb(100, 181, 246);
-      background-color: #fff;
-      opacity: 1;
-      border: 0;
-      height: 1px;
+        width: 100%;
+        color: rgb(100, 181, 246);
+        background-color: #fff;
+        opacity: 1;
+        border: 0;
+        height: 1px;
     }
+
     .bottomWrapper {
         padding: 60px;
     }
+
     .innerBottomWrap {
         border-left: 5px solid #00BCD4;
         padding-left: 20px;
@@ -57,26 +72,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
     <template>
         <div class="fullbleed">
-            <h2>Build set up</h2>
-            <div class="bottomWrapper">
-                <h3 id="subTitle">Individual Polymer Element</h3>
-                <div class="innerBottomWrap" id="bottomWrap">
-
-                    <ul>
-                        <li>Set up project folder - bower & npm for dependancy management</li>
-                        <li>include web-components (or web-components-lite) + polymer.html</li>
-                        <li>Need to run local dev server - npm polyserve works right out of the box</li>
-                        <li>for importing link <code>rel="import" href="elements/elements.html"</code></li>
-                        <li>Grunt/gulp for task for automation</li>
-                        <li>Unit testing using Web Component Tester</li>
-                    </ul>
-
-                    <p>This project uses page.js for routing</p>
-                     <p>This project uses page.js for routing</p>
-
-                    <a data-route="element-setup" href="/element-setup">
-                        <p class="webCompTransition">What Does an Element look like?</p>
-                    </a>
+            <h2 class="animateMe">Build set up <a data-route="element-setup" href="/element-setup" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab></a></h2>
+            <div class="bottomWrapper animateMe">
+                <h3 id="subTitle animateMe">Get started building with Polymer</h3>
+                <div class="innerBottomWrap animateMe" id="bottomWrap">
+                    <div class="listItem animateMe">Set up project folder - bower & npm for dependancy management</div>
+                    <div class="listItem animateMe">Include web-components (or web-components-lite) + polymer.html</div>
+                    <div class="listItem animateMe">Need to run local dev server - npm polyserve works right out of the box, butt here are more options depending on your needs.</div>
+                    <div class="listItem animateMe">For importing link <code>rel="import" href="elements/elements.html"</code></div>
+                    <div class="listItem animateMe">Grunt/gulp for task for automation</div>
+                    <div class="listItem animateMe">Unit testing using Web Component Tester</div>
+                    <div class="listItem animateMe"><a href="https://github.com/visionmedia/page.js" target="_blank">Page.js</a> for routing</div>
                 </div>
             </div>
         </div>
@@ -96,10 +102,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 },
                 animationConfig: {
                     value: function() {
+                        var titles = Polymer.dom(this.root).querySelectorAll('.animateMe');
+                        var titlesArray = Array.prototype.slice.call(titles);
                         return {
                             'entry': [{
                                 name: 'slide-from-left-animation',
                                 node: this
+                            }, {
+                                name: 'cascaded-animation',
+                                animation: 'scale-up-animation',
+                                timing: {
+                                    delay: 100
+                                },
+                                nodes: titlesArray
                             }],
                             'exit': [{
                                 node: this,

@@ -13,12 +13,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         height: 100%;
         background-color: #fff;
         font-weight: 200;
+        --paper-card-header-color: #fff;
+        --paper-card-header: border-bottom: 1px solid #E91E63;
     }
 
+    .title-text {
+        border-bottom: 1px solid #fff;
+    }
     h2 {
         width: 100%;
         margin: 0;
-        background-color: #FFC107;
+        background-color: #3F51B5;
         font-weight: 200;
         font-size: 48px;
         padding: 60px 60px;
@@ -26,7 +31,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     h3 {
-        color: #FFC107;
+        color: #3F51B5;
         font-size: 24px;
         font-weight: 400;
         line-height: 32px;
@@ -54,7 +59,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     .innerBottomWrap {
-        border-left: 5px solid #FFC107;
+        border-left: 5px solid #3F51B5;
         padding-left: 20px;
     }
 
@@ -70,23 +75,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         height: 200px;
         width: 48%;
         margin: 1%;
+        color: #FFF8E1;
         float: left;
-    }
-
-    .customElements {
-        background-color: #fff;
-    }
-
-    .shadowDom {
-        background-color: #fff;
-    }
-
-    .htmlImports {
-        background-color: #fff;
-    }
-
-    .htmlTemplates {
-        background-color: #fff;
+        background-color: #3F51B5;
     }
 
     .next {
@@ -96,15 +87,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     .fab {
-        --paper-fab-background: var(--paper-light-blue-500);
-        --paper-fab-keyboard-focus-background: var(--paper-light-blue-900);
+        --paper-fab-background: var(--paper-indigo-300);
+        --paper-fab-keyboard-focus-background: var(--paper-indigo-900);
+    }
+
+    .clear {
+        clear: both;
     }
     </style>
     <template>
         <div class="fullbleed">
             <h2 id="heroWrap">Web Components</h2>
             <div class="bottomWrapper">
-                <h3 id="subTitle">Web Components are a set of standards currently being produced by Google engineers as a W3C specification that allow for the creation of reusable widgets or components in web documents and web applications. The components model allows for encapsulation and interoperability of individual HTML elements.
+                <h3 id="subTitle" class="titles">Web Components are a set of standards currently being produced by Google engineers as a W3C specification that allow for the creation of reusable widgets or components in web documents and web applications. The components model allows for encapsulation and interoperability of individual HTML elements.
                 Web Components consist of 4 main elements which can be used separately or all together:</h3>
                 <div class="innerBottomWrap" id="bottomWrap">
                     <paper-card heading="Custom Elements" class="customCard customElements">
@@ -119,6 +114,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <paper-card heading="HTML Templates" class="customCard htmlTemplates">
                         <div class="card-content">The template element is used to declare fragments of HTML that can be cloned and inserted in the document by script.</div>
                     </paper-card>
+                    <div class="clear"></div>
                     <a data-route="polymer-intro" href="/polymer-intro" class="next" id="next">
                         <paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab>
                     </a>
@@ -148,6 +144,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 },
                 animationConfig: {
                     value: function() {
+                        var cards = Polymer.dom(this.root).querySelectorAll('.customCard');
+                        var cardsArray = Array.prototype.slice.call(cards);
+
+                        var titles = Polymer.dom(this.root).querySelectorAll('.titles');
+                        var titlesArray = Array.prototype.slice.call(titles);
+
                         return {
                             'entry': [{
                                 name: 'scale-up-animation',
@@ -155,9 +157,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                             }, {
                                 node: this.$.next,
                                 timing: {
-                                    delay: 300
+                                    delay: 500
                                 },
                                 name: 'scale-up-animation'
+                            },{
+                                name: 'cascaded-animation',
+                                animation: 'scale-up-animation',
+                                nodes: titlesArray
+                            },{
+                                name: 'cascaded-animation',
+                                animation: 'scale-up-animation',
+                                timing: {
+                                    delay: 200
+                                },
+                                nodes: cardsArray
                             }],
                             'exit': [{
                                 node: this,
