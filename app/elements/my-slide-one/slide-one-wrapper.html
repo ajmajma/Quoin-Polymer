@@ -24,49 +24,64 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 60px 60px;
         color: #fff;
     }
+
     h3 {
         color: #03a9f4;
         font-size: 24px;
-    font-weight: 400;
-    line-height: 32px;
-    margin-bottom: 30px
+        font-weight: 400;
+        line-height: 32px;
+        margin-bottom: 30px
     }
+
     hr {
-      width: 100%;
-      color: rgb(100, 181, 246);
-      background-color: #fff;
-      opacity: 1;
-      border: 0;
-      height: 1px;
+        width: 100%;
+        color: rgb(100, 181, 246);
+        background-color: #fff;
+        opacity: 1;
+        border: 0;
+        height: 1px;
     }
+
     p {
-      font-size: 13px;
-      margin: 10px 0 0 0;
-      line-height: 20px;
-      height: 40px;
-      color: #fff;
+        font-size: 13px;
+        margin: 10px 0 0 0;
+        line-height: 20px;
+        height: 40px;
+        color: #fff;
     }
+
     .bottomWrapper {
         padding: 60px;
     }
+
     .innerBottomWrap {
         border-left: 5px solid #03a9f4;
         padding-left: 20px;
     }
 
     .listItem {
-    font-size: 20px;
-    line-height: 16px;
-    padding-bottom: 30px;
-    font-weight: 200;
-    color: #757575;
+        font-size: 20px;
+        line-height: 16px;
+        padding-bottom: 30px;
+        font-weight: 200;
+        color: #757575;
+    }
+
+    .next {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+
+    .fab {
+        --paper-fab-background: var(--paper-amber-500);
+        --paper-fab-keyboard-focus-background: var(--paper-amber-900);
     }
 
     </style>
     <template>
         <div>
-            <h2>What Is Polymer?</h2>
-
+            <h2 id="topBar">What Is Polymer?</h2>
             <div class="bottomWrapper">
                 <h3 id="subTitle">A New Javascript Library for Web Components</h3>
                 <div class="innerBottomWrap" id="bottomWrap">
@@ -79,8 +94,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <div class="listItem">It is built off of Web Components</div>
                 </div>
             </div>
-            <a data-route="web-components" href="/web-components" class="next" id="next"><div class="webCompTransition">What are Web Components?</div></a>
-
+            <a data-route="web-components" href="/web-components" class="next" id="next">
+                <paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab>
+            </a>
         </div>
     </template>
     <script>
@@ -96,6 +112,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     type: Array,
                     notify: true,
                 },
+                sharedElements: {
+                    value: function() {
+                        return {
+                            'hero': this.$.topBar
+                        }
+                    }
+                },
                 animationConfig: {
                     value: function() {
                         var listItem = Polymer.dom(this.root).querySelectorAll('.listItem');
@@ -103,27 +126,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
                         return {
                             'entry': [{
-                                name: 'scale-up-animation',
-                                node: this
-                            },{
+                                name: 'hero-animation',
+                                id: 'hero',
+                                toPage: this
+                            }, {
                                 name: 'slide-from-left-animation',
-                                timing: {delay: 200},
+                                timing: {
+                                    delay: 200
+                                },
                                 node: this.$.subTitle
-                            },
-                            {
+                            }, {
                                 name: 'slide-down-animation',
-                                timing: {delay: 100},
+                                timing: {
+                                    delay: 100
+                                },
                                 node: this.$.bottomWrap
-                            },{
+                            }, {
                                 name: 'cascaded-animation',
                                 animation: 'transform-animation',
-                                timing: {delay: 400},
+                                timing: {
+                                    delay: 400
+                                },
                                 transformFrom: 'translateX(100%)',
                                 nodes: listArray
+                            }, {
+                                node: this.$.next,
+                                timing: {
+                                    delay: 300
+                                },
+                                name: 'scale-up-animation'
                             }],
                             'exit': [{
-                                node: this,
-                                name: 'slide-right-animation'
+                                name: 'slide-right-animation',
+                                node: this
                             }]
                         };
                     }

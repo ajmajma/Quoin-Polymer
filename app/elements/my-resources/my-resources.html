@@ -7,47 +7,102 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-
-<dom-module id="my-resources">
-  <style>
+<dom-module id="my-impression">
+    <style>
     :host {
-      display: block;
+        height: 100%;
+        font-weight: 200;
     }
-  </style>
-  <template>
-   <paper-material elevation="1">
-      <ul>
-        <template is="dom-repeat" items="{{items}}">
-          <li><span class="paper-font-body1">{{item.name}}</span></li>
-        </template>
-      </ul>
-    </paper-material>
-  </template>
 
-  <script>
-    (function () {
-      Polymer({
-        is: 'my-resources',
-         behaviors: [
-          Polymer.NeonSharedElementAnimatableBehavior
-        ],
-        properties: {
-          items: {
-            type: Array,
-            notify: true,
-          }
-        },
-        ready: function() {
-          this.items = [
-            { 'name' : 'Polymer', 'link' : ''},
-            { 'name' : 'Polymer', 'link' : ''},
-            { 'name' : 'Polymer', 'link' : ''},
-            { 'name' : 'Polymer', 'link' : ''},
-            { 'name' : 'Polymer', 'link' : ''}
-          ];
-        }
-      });
+    h2 {
+        width: 100%;
+        margin: 0;
+        background-color: #FF9800;
+        font-weight: 200;
+        font-size: 48px;
+        padding: 60px 60px;
+        color: #fff;
+    }
+
+    h3 {
+        color: #FF9800;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        margin-bottom: 30px
+    }
+
+    hr {
+        width: 100%;
+        color: rgb(100, 181, 246);
+        background-color: #fff;
+        opacity: 1;
+        border: 0;
+        height: 1px;
+    }
+
+    .bottomWrapper {
+        padding: 60px;
+    }
+
+    .innerBottomWrap {
+        border-left: 5px solid #FF9800;
+        padding-left: 20px;
+    }
+
+    .listItem {
+        font-size: 20px;
+        line-height: 16px;
+        padding-bottom: 30px;
+        font-weight: 200;
+        color: #757575;
+    }
+    </style>
+    <template>
+        <div>
+            <h2 id="pageTitle">Polymer Resources</h2>
+            <div class="bottomWrapper transitionAnim">
+                <h3 id="subTitle">Subject to change as community grows</h3>
+                <div>https://elements.polymer-project.org/</div>
+                <div>https://www.polymer-project.org/1.0/</div>
+                <div>https://www.youtube.com/watch?v=fD2As5RmM8Q</div>
+                <div>https://www.youtube.com/playlist?list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN</div>
+            </div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'my-impression',
+            behaviors: [
+                Polymer.NeonSharedElementAnimatableBehavior,
+                Polymer.NeonAnimatableBehavior
+            ],
+            properties: {
+                items: {
+                    type: Array,
+                    notify: true,
+                },
+                animationConfig: {
+                    value: function() {
+                        return {
+                            'entry': [{
+                                name: 'scale-up-animation',
+                                node: this
+                            }, {
+                                name: 'slide-down-animation',
+                                timing: {delay: 200},
+                                node: this.$.pageTitle
+                            }],
+                            'exit': [{
+                                node: this,
+                                name: 'slide-right-animation'
+                            }]
+                        };
+                    }
+                }
+            }
+        });
     })();
-  </script>
-
+    </script>
 </dom-module>

@@ -10,8 +10,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="my-landing">
     <style>
     ::host {
-      color: #fff;
+        color: #fff;
     }
+
     neon-animated-pages {
         height: 100%;
     }
@@ -23,76 +24,82 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     .next {
-      position: absolute;
-      bottom: 25px;
-      right: 25px;
+        position: absolute;
+        top: 40px;
+        right: 40px;
     }
 
     .fab {
-      --paper-fab-background: var(--paper-blue-500);
-      --paper-fab-keyboard-focus-background: var(--paper-blue-900);
+        --paper-fab-background: var(--paper-blue-500);
+        --paper-fab-keyboard-focus-background: var(--paper-blue-900);
     }
 
     .startCard {
-         padding: 15px;
+        padding: 15px;
     }
 
     h2 {
-      font-weight: 200;
-      font-size: 48px;
-      margin: 20px 0;
-      color: #fff;
+        font-weight: 200;
+        font-size: 48px;
+        margin: 20px 0;
+        color: #fff;
     }
+
     h3 {
-      color: #fff;
-      margin: 0 0 15px;
-      height: 64px;
-      font-size: 20px;
-      font-weight: 200;
-      line-height: 28px;
+        color: #fff;
+        margin: 0 0 15px;
+        height: 64px;
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 28px;
     }
+
     hr {
-      width: 100%;
-      color: rgb(100, 181, 246);
-      background-color: #fff;
-      opacity: 1;
-      border: 0;
-      height: 1px;
+        width: 100%;
+        color: rgb(100, 181, 246);
+        background-color: #fff;
+        opacity: 1;
+        border: 0;
+        height: 1px;
     }
+
     p {
-      font-size: 13px;
-      margin: 10px 0 0 0;
-      line-height: 20px;
-      height: 40px;
-      color: #fff;
+        font-size: 13px;
+        margin: 10px 0 0 0;
+        line-height: 20px;
+        height: 40px;
+        color: #fff;
     }
 
     ul {
-      list-style-type: none;
+        list-style-type: none;
     }
 
     li {
-      font-weight: 200;
-      color: #fff;
-      padding-bottom: 10px;
+        font-weight: 200;
+        color: #fff;
+        padding-bottom: 10px;
     }
     </style>
     <template>
-        <div class="fullbleed">
-          <!-- <paper-material elevation="1" class="startCard" id="startCard"> -->
-            <h2 class="polyTation">Polymer</h2>
+        <div class="fullbleed" id="fullbleed">
+            <!-- <paper-material elevation="1" class="startCard" id="startCard"> -->
+            <h2 class="polyTation" id="topBar">Polymer</h2>
             <h3 class="polyTation">Web Component Library</h3>
             <hr class="polyTation">
-
             <ul>
-              <li class="polyTation">What is Polymer</li>
-              <li class="polyTation">Index landing page directory</li>
-              <li class="polyTation">What are web components</li>
-              <li class="polyTation">What are web components</li>
-              <li class="polyTation">What are web components</li>
+                <li class="polyTation">What is Polymer?</li>
+                <li class="polyTation">What are are components?</li>
+                <li class="polyTation">More on Polymer</li>
+                <li class="polyTation">Polymer Elements</li>
+                <li class="polyTation">Polymer build</li>
+                <li class="polyTation">What does a Polymer element look like?</li>
+                <li class="polyTation">Initial thoughts on Polymer</li>
             </ul>
-          <!-- </paper-material> -->
-           <a data-route="introduction" href="/slide-one" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab></a>
+            <!-- </paper-material> -->
+            <a data-route="introduction" href="/slide-one" class="next" id="next">
+                <paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab>
+            </a>
         </div>
     </template>
     <script>
@@ -108,52 +115,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     type: Array,
                     notify: true,
                 },
+                sharedElements: {
+                    value: function() {
+                        return {
+                            'hero': this.$.fullbleed
+                        }
+                    }
+                },
                 animationConfig: {
                     value: function() {
-                       var poly = Polymer.dom(this.root).querySelectorAll('.polyTation');
-                      var polyArray = Array.prototype.slice.call(poly);
+                        var poly = Polymer.dom(this.root).querySelectorAll('.polyTation');
+                        var polyArray = Array.prototype.slice.call(poly);
                         return {
                             'entry': [{
-                              node: this,
-                              name: 'scale-up-animation'
-                            },{
+                                name: 'hero-animation',
+                                id: 'hero',
+                                toPage: this
+                            }, {
                                 name: 'cascaded-animation',
                                 animation: 'transform-animation',
                                 transformFrom: 'translateY(60vh)',
                                 nodes: polyArray
-                            }
-                            ,{
-                              node: this.$.next,
-                              name: 'scale-down-animation'
+                            }, {
+                                node: this.$.next,
+                                timing: {
+                                    delay: 300
+                                },
+                                name: 'scale-up-animation'
                             }],
                             'exit': [{
-                                node: this,
-                                name: 'slide-right-animation'
-                            },{
-                              node: this.$.next,
-                              name: 'scale-down-animation'
+                                name: 'hero-animation',
+                                id: 'hero',
+                                fromPage: this
                             }]
                         };
                     }
                 }
             },
-            ready: function() {
-                this.items = [{
-                    'name': 'Polymer',
-                    'link': ''
-                }, {
-                    'name': 'Polymer',
-                    'link': ''
-                }, {
-                    'name': 'Polymer',
-                    'link': ''
-                }, {
-                    'name': 'Polymer',
-                    'link': ''
-                }, {
-                    'name': 'Polymer',
-                    'link': ''
-                }];
+            listeners: {
+                'click': '_onClick'
+            },
+            _onClick: function(event) {
+                var target = event.target;
+                if (target.classList.contains('paper-fab')) {
+                    // configure the page animation
+                    this.sharedElements = {
+                        'hero': target
+                    };
+                }
             }
         });
     })();

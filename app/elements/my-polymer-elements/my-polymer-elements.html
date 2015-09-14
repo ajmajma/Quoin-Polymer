@@ -33,6 +33,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-bottom: 30px
     }
 
+    .elemTitle {
+        color: #fff;
+        font-weight: 200;
+        font-size: 28px;
+        text-align: center;
+    }
+
     hr {
         width: 100%;
         color: rgb(100, 181, 246);
@@ -52,6 +59,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     .elementContainer {
+        transition: 0.2s all;
+        cursor: pointer;
         width: 23%;
         margin: 1%;
         height: 200px;
@@ -59,50 +68,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         float: left;
     }
 
+    .elementContainer:hover {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    }
+
     google-map {
         width: 100%;
         height: 80%;
     }
     </style>
+
     <template>
-        <div class="fullbleed">
-            <h2 class="titles">Polymer Elements</h2>
-            <div class="bottomWrapper">
-                <h3 class="titles">Growing library of building blocks for developers</h3>
-                <div class="innerBottomWrap" id="bottomWrap">
-                    <div class="elementContainer">
-                        Iron
-                        <hr> Core building blocks
-                    </div>
-                    <div class="elementContainer">
-                        Paper
-                        <hr> Material Design
-                    </div>
-                    <div class="elementContainer">
-                        Google API
-                        <google-map latitude="37.77493" longitude="-122.41942"></google-map>
-                    </div>
-                    <div class="elementContainer">
-                        Gold
-                        <hr> Ecommerce
-                    </div>
-                    <div class="elementContainer">
-                        Neon
-                        <hr> Animation
-                    </div>
-                    <div class="elementContainer">
-                        Platinum
-                        <hr> Service Worker!! Push notification, offline caching
-                    </div>
-                    <div class="elementContainer">
-                        Molecules (brand new?)
-                        <hr> Third party wrappers
-                    </div>
-                    <a data-route="build-setup" href="/build-setup" class="next" id="next">So how Do I set it up?</a>
-                </div>
-            </div>
-        </div>
+        <neon-animated-pages id="pages" selected="0">
+            <polymer-elements-page on-tile-click="_onElementClick"></polymer-elements-page>
+            <my-polymer-full on-full-click="_onFullClick" data-id="[[dataId]]"></my-polymer-full>
+        </neon-animated-pages>
     </template>
+
     <script>
     (function() {
         Polymer({
@@ -118,31 +100,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 },
                 animationConfig: {
                     value: function() {
-                        var squares = Polymer.dom(this.root).querySelectorAll('.elementContainer');
-                        var squaresArray = Array.prototype.slice.call(squares);
-
-                        var titles = Polymer.dom(this.root).querySelectorAll('.titles');
-                        var titlesArray = Array.prototype.slice.call(titles);
 
                         return {
                             'entry': [{
                                 name: 'scale-up-animation',
                                 node: this
-                            }, {
-                                name: 'cascaded-animation',
-                                animation: 'scale-up-animation',
-                                timing: {
-                                    delay: 600,
-                                    duration: 800
-                                },
-                                nodes: squaresArray
-                            }, {
-                                name: 'cascaded-animation',
-                                animation: 'slide-from-left-animation',
-                                timing: {
-                                    delay: 400
-                                },
-                                nodes: titlesArray
                             }],
                             'exit': [{
                                 node: this,
@@ -151,8 +113,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         };
                     }
                 }
+            },
+            _onElementClick: function(event) {
+                this.dataId = event.detail.data["_templateInstance"].__data__.item;
+                this.$.pages.selected = 1;
+            },
+            _onFullClick: function(event) {
+                this.$.pages.selected = 0;
             }
         });
     })();
     </script>
+
 </dom-module>

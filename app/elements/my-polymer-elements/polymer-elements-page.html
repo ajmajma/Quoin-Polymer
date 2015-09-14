@@ -1,0 +1,204 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<dom-module id="polymer-elements-page">
+    <style>
+    :host {
+        height: 100%;
+        background-color: #fff;
+        font-weight: 200;
+    }
+
+    h2 {
+        width: 100%;
+        margin: 0;
+        background-color: #8BC34A;
+        font-weight: 200;
+        font-size: 48px;
+        padding: 60px 60px;
+        color: #fff;
+    }
+
+    h3 {
+        color: #8BC34A;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        margin-bottom: 30px
+    }
+
+    .elemTitle {
+        color: #fff;
+        font-weight: 200;
+        font-size: 28px;
+        text-align: center;
+    }
+
+    hr {
+        width: 100%;
+        color: rgb(100, 181, 246);
+        background-color: #fff;
+        opacity: 1;
+        border: 0;
+        height: 1px;
+    }
+
+    .bottomWrapper {
+        padding: 60px;
+    }
+
+    .innerBottomWrap {
+        border-left: 5px solid #8BC34A;
+        padding-left: 20px;
+    }
+
+    .elementContainer {
+        transition: 0.2s all;
+        cursor: pointer;
+        width: 23%;
+        margin: 1%;
+        height: 200px;
+        background-color: #8BC34A;
+        float: left;
+    }
+
+    .elementContainer:hover {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    google-map {
+        width: 100%;
+        height: 80%;
+    }
+
+    .clear {
+        clear: both;
+    }
+    .next {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+
+    .fab {
+        --paper-fab-background: var(--paper-light-green-300);
+        --paper-fab-keyboard-focus-background: var(--paper-light-green-900);
+    }
+    </style>
+    <template>
+        <div class="fullbleed">
+            <h2 class="titles">Polymer Elements
+            <a data-route="build-setup" href="/build-setup" class="next" id="next">
+                        <paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab>
+                    </a></h2>
+            <div class="bottomWrapper">
+                <h3 class="titles">A growing library of building blocks for developers <a href="https://elements.polymer-project.org/" target="_blank"><iron-icon icon="link" class="big introCenter"></iron-icon></a></h3>
+                <div class="innerBottomWrap" id="bottomWrap">
+                    <template is="dom-repeat" items="[[config]]">
+                        <div class="elementContainer" on-click="_onSquaresClick">
+                            <h5 class="elemTitle">[[item.title]]</h5>
+                        </div>
+                    </template>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'polymer-elements-page',
+            behaviors: [
+                Polymer.NeonSharedElementAnimatableBehavior,
+                Polymer.NeonAnimatableBehavior
+            ],
+            properties: {
+                items: {
+                    type: Array,
+                    notify: true,
+                },
+                config: {
+                    type: Array,
+                    value: function() {
+                        return [{
+                            title: "Iron",
+                            content: 'Core Building Elements. "A set of visual and non-visual utility elements. Includes elements for working with layout, user input, selection, and scaffolding apps."'
+                        }, {
+                            title: "Paper",
+                            content: "Paper Elements. Design elements using Google's Material Design."
+                        }, {
+                            title: "Google",
+                            content: "Google Web Components. Components for Google's API's and services. Out of the box use of google maps, analytics, calenders, hangouts, etc."
+                        }, {
+                            title: "Gold",
+                            content: "Eccomerce elements. Product line to help developers built checkout flows. Validated name fields, validated credit card fields, etc."
+                        }, {
+                            title: "Neon",
+                            content: "Animation Elements."
+                        }, {
+                            title: "Platinum",
+                            content: "Offline Caching, push notifications, and more - Google's service worker."
+                        }, {
+                            title: "Molecules",
+                            content: "Third party libraries wrapper with Polymer."
+                        }]
+                    }
+                },
+                animationConfig: {
+                    value: function() {
+                        var titles = Polymer.dom(this.root).querySelectorAll('.titles');
+                        var titlesArray = Array.prototype.slice.call(titles);
+
+                        return {
+                            'entry': [{
+                                name: 'hero-animation',
+                                id: 'hero',
+                                toPage: this,
+                            }, {
+                                name: 'scale-up-animation',
+                                node: this
+                            }, {
+                                name: 'cascaded-animation',
+                                animation: 'scale-up-animation',
+                                timing: {
+                                    delay: 200
+                                },
+                                nodes: titlesArray
+                            }],
+                            'exit': [{
+                                name: 'ripple-animation',
+                                id: 'ripple',
+                                fromPage: this
+                            }, {
+                                name: 'hero-animation',
+                                id: 'hero',
+                                fromPage: this
+                            }]
+                        };
+                    }
+                }
+            },
+            _onSquaresClick: function(event) {
+                var target = event.target;
+                this.sharedElements = {
+                    'hero': target,
+                    'ripple': target
+                };
+                this.fire('tile-click', {
+                    tile: event.target,
+                    data: event.target
+                });
+                // this.$.pages.selected = 1;
+
+
+            }
+        });
+    })();
+    </script>
+</dom-module>

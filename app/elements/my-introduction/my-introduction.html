@@ -157,9 +157,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                               name: 'scale-up-animation'
                             }],
                             'exit': [{
-                                node: this,
-                                name: 'slide-right-animation'
-                            }]
+                              name: 'hero-animation',
+                              id: 'hero',
+                              fromPage: this
+                          }]
                         };
                     }
                 }
@@ -167,6 +168,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attached: function() {
               this.style.visibility = 'visible';
               this.playAnimation('entry');
+            },
+             listeners: {
+                'click': '_onClick'
+            },
+            _onClick: function(event) {
+              var target = event.target;
+              if (target.classList.contains('paper-fab')) {
+                  // configure the page animation
+                  this.sharedElements = {
+                      'hero': target
+                  };
+              }
             }
         });
     })();

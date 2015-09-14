@@ -47,8 +47,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app.route = 'polymer-elements';
     });
 
-     page('/build-setup', function () {
+    page('/build-setup', function () {
       app.route = 'build-setup';
+    });
+
+    page('/my-impression', function () {
+      app.route = 'my-impression';
     });
 
     page('/users/:name', function (data) {

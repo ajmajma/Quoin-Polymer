@@ -90,6 +90,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <iron-icon icon="info"></iron-icon>
                         <span>Element Setup</span>
                     </a>
+                    <a data-route="my-impression" href="/element-setup">
+                        <iron-icon icon="info"></iron-icon>
+                        <span>First Impression</span>
+                    </a>
                 </paper-menu>
             </paper-scroll-header-panel>
             <!-- Main Area -->
@@ -115,6 +119,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <my-polymer-build data-route="build-setup"></my-polymer-build>
 
                         <my-polymer-elements data-route="polymer-elements"></my-polymer-elements>
+
+                        <my-impression data-route="my-impression"></my-impression>
                            <!--  <neon-animated-pages id="pages" selected="0" data-route="about">
                                 <animated-grid on-tile-click="_onTileClick" id="grid"></animated-grid>
                                 <fullsize-page-with-card id="fullsize-card" hero-id="hero" on-click="_onFullsizeClick">
@@ -150,17 +156,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- build:js scripts/app.js -->
     <script src="scripts/app.js"></script>
     <script>
-    var scope = document.querySelector('template[is="dom-bind"]');
-    scope._onTileClick = function(event) {
-        this.$['fullsize-card'].color = event.detail.data.color;
-        this.$['fullsize-card'].title = event.detail.data.title;
-        this.$['fullsize-card'].content = event.detail.data.content;
-        this.$['fullsize-card'].slide = event.detail.data.slide;
-        this.$.pages.selected = 1;
-    };
-    scope._onFullsizeClick = function(event) {
-        this.$.pages.selected = 0;
-    };
+
     </script>
     <!-- endbuild-->
 </body>
