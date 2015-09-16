@@ -115,10 +115,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 }
             },
             _onElementClick: function(event) {
-                this.dataId = event.detail.data["_templateInstance"].__data__.item;
+                this.dataId = event.detail.data._templateInstance.__data__.item;
                 this.$.pages.selected = 1;
             },
-            _onFullClick: function(event) {
+            _onFullClick: function() {
                 this.$.pages.selected = 0;
             }
         });

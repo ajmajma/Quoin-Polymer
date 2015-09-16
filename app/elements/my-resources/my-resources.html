@@ -50,10 +50,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding-left: 20px;
     }
 
-    .listItem {
-        font-size: 20px;
-        line-height: 16px;
-        padding-bottom: 30px;
+    .animMe {
+        font-size: 16px;
+        line-height: 30px;
         font-weight: 200;
         color: #757575;
     }
@@ -62,14 +61,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div>
             <h2 id="pageTitle">Polymer Resources </h2>
             <div class="bottomWrapper transitionAnim">
-                <h3 id="subTitle">Resources used for this presentation</h3>
-                <div>Polymer Elements - https://elements.polymer-project.org/</div>
-                <div>Polymer 1.0 - https://www.polymer-project.org/1.0/</div>
-                <div>In Depth Polymer 2015 talk (best one to date) - https://www.youtube.com/watch?v=fD2As5RmM8Q</div>
-                <div>Polycasts with Rob Dodson - https://www.youtube.com/playlist?list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN</div>
-                <div>Polymer Starter Kit - https://developers.google.com/web/tools/polymer-starter-kit/index?hl=en</div>
-                <div>http://www.code-labs.io/polymer-summit (Going on the week of this presentation)</div>
-                <div>Web Components - http://webcomponents.org/</div>
+                <h3 id="subTitle animMe">Resources used for this presentation</h3>
+                <div class="animMe">Polymer Elements - <a href="https://elements.polymer-project.org/" target="_blank">https://elements.polymer-project.org/</a></div>
+                <div class="animMe">Polymer 1.0 - <a href="https://www.polymer-project.org/1.0/" target="_blank">https://www.polymer-project.org/1.0/</a></div>
+                <div class="animMe">In Depth Polymer 2015 talk (best one to date) - <a href="https://www.youtube.com/watch?v=fD2As5RmM8Q" target="_blank">https://www.youtube.com/watch?v=fD2As5RmM8Q</a></div>
+                <div class="animMe">Polycasts with Rob Dodson - <a href="https://www.youtube.com/playlist?list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN" target="_blank">https://www.youtube.com/playlist?list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN</a></div>
+                <div class="animMe">Polymer Starter Kit - <a href="https://developers.google.com/web/tools/polymer-starter-kit/index?hl=en" target="_blank">https://developers.google.com/web/tools/polymer-starter-kit/index?hl=en</a></div>
+                <div class="animMe"><a href="http://www.code-labs.io/polymer-summit" target="_blank">http://www.code-labs.io/polymer-summit (Going on the week of this presentation)</a></div>
+                <div class="animMe">Web Components - <a href="http://webcomponents.org/" target="_blank">http://webcomponents.org/</a></div>
+                <div class="animMe"><a href="https://github.com/WebComponents/webcomponentsjs#browser-support" target="_blank">https://github.com/WebComponents/webcomponentsjs#browser-support</div>
+
             </div>
         </div>
     </template>
@@ -88,6 +89,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 },
                 animationConfig: {
                     value: function() {
+
+                        var titles = Polymer.dom(this.root).querySelectorAll('.animMe');
+                        var titlesArray = Array.prototype.slice.call(titles);
                         return {
                             'entry': [{
                                 name: 'scale-up-animation',
@@ -96,6 +100,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                 name: 'slide-down-animation',
                                 timing: {delay: 200},
                                 node: this.$.pageTitle
+                            },{
+                                name: 'cascaded-animation',
+                                animation: 'scale-up-animation',
+                                timing: {
+                                    delay: 100
+                                },
+                                nodes: titlesArray
                             }],
                             'exit': [{
                                 node: this,

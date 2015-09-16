@@ -15,7 +15,7 @@
         background-color: #8BC34A;
         position: relative;
         padding: 20px;
-        margin: 50px 100px 0;
+        margin: 10% 100px 0;
         /*    height: 500px;*/
     }
 
@@ -71,14 +71,11 @@ Polymer({
                     'entry': [{
                         name: 'hero-animation',
                         id: 'hero',
-                        toPage: this,
+                        toPage: this
                     }, {
                         name: 'ripple-animation',
                         id: 'ripple',
-                        toPage: this,
-                        timing: {
-                            delay: 150
-                        }
+                        toPage: this
                     }, {
                         node: this.$.title,
                         timing: {
@@ -113,7 +110,6 @@ Polymer({
         click: '_onClick'
     },
     _onClick: function(event) {
-
         this.fire('full-click', {
             tile: event.target,
             data: event.target

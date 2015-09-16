@@ -106,6 +106,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
                 <!-- Main Content -->
                 <div class="content">
+
                     <neon-animated-pages id="pages" attr-for-selected="data-route"  selected="{{route}}" class="animationStyleFix">
 
                         <my-introduction data-route="home"></my-introduction>
@@ -127,40 +128,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <my-impression data-route="my-impression"></my-impression>
 
                         <my-resources data-route="my-resources"></my-resources>
-                           <!--  <neon-animated-pages id="pages" selected="0" data-route="about">
-                                <animated-grid on-tile-click="_onTileClick" id="grid"></animated-grid>
-                                <fullsize-page-with-card id="fullsize-card" hero-id="hero" on-click="_onFullsizeClick">
-                                </fullsize-page-with-card>
-                            </neon-animated-pages> -->
-
 
                     </neon-animated-pages>
+
                 </div>
             </paper-scroll-header-panel>
         </paper-drawer-panel>
-        <!-- Uncomment next block to enable Service Worker support (1/2) -->
-        <!--
-    <paper-toast id="caching-complete"
-                 duration="6000"
-                 text="Caching complete! This app will work offline.">
-    </paper-toast>
-
-    <platinum-sw-register auto-register
-                          clients-claim
-                          skip-waiting
-                          on-service-worker-installed="displayInstalledToast">
-      <platinum-sw-cache default-cache-strategy="networkFirst"
-                         precache-file="precache.json">
-      </platinum-sw-cache>
-    </platinum-sw-register>
-    -->
     </template>
 
     <!-- build:js scripts/app.js -->
     <script src="scripts/app.js"></script>
-    <script>
-
-    </script>
     <!-- endbuild-->
 </body>
 

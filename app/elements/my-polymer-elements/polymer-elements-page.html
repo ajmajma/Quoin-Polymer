@@ -33,6 +33,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-bottom: 30px
     }
 
+    h5 {
+        font-size: 18px;
+        font-weight: 400;
+    }
     .elemTitle {
         color: #fff;
         font-weight: 200;
@@ -99,6 +103,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     </a></h2>
             <div class="bottomWrapper">
                 <h3 class="titles">A growing library of building blocks for developers <a href="https://elements.polymer-project.org/" target="_blank"><iron-icon icon="link" class="big introCenter"></iron-icon></a></h3>
+                <h5>Polymers catalog of Polymer-based web components</h5>
                 <div class="innerBottomWrap" id="bottomWrap">
                     <template is="dom-repeat" items="[[config]]">
                         <div class="elementContainer" on-click="_onSquaresClick">
@@ -194,9 +199,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     tile: event.target,
                     data: event.target
                 });
-                // this.$.pages.selected = 1;
-
-
             }
         });
     })();

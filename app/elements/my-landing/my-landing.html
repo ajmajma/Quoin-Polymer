@@ -23,9 +23,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background-color: #d81b60;
     }
 
+    .next {
+      display: block;
+      padding-top: 90px;
+    }
+
     .fab {
-        --paper-fab-background: var(--paper-blue-500);
-        --paper-fab-keyboard-focus-background: var(--paper-blue-900);
+
     }
     .startCard {
         padding: 15px;
@@ -65,16 +69,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     ul {
+       border-left: 3px solid #fff;
         list-style-type: none;
         margin-left: 0;
-        padding-left: 0;
     }
 
     li {
         font-weight: 200;
         color: #fff;
-        font-size: 24px;
-        padding-bottom: 10px;
+        font-size: 20px;
+        line-height: 30px;
     }
     </style>
     <template>
@@ -82,17 +86,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <!-- <paper-material elevation="1" class="startCard" id="startCard"> -->
             <h2 class="polyTation" id="topBar">Polymer Talk</h2>
             <h3 class="polyTation">A Polymer presentation built with Polymer</h3>
-            <hr class="polyTation">
             <ul>
-                <li class="polyTation">What is Polymer?</li>
-                <li class="polyTation">What are are web components?</li>
+                <li class="polyTation">What is Polymer</li>
+                <li class="polyTation">What are are web components</li>
                 <li class="polyTation">More on Polymer</li>
                 <li class="polyTation">Polymer Elements</li>
                 <li class="polyTation">Setting up a project</li>
                 <li class="polyTation">What does a Polymer element look like?</li>
                 <li class="polyTation">Initial thoughts on Polymer</li>
             </ul>
-            <!-- </paper-material> -->
             <a data-route="introduction" href="/slide-one" class="next polyTation" id="next">
                 <paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab>
             </a>
@@ -115,7 +117,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     value: function() {
                         return {
                             'hero': this.$.fullbleed
-                        }
+                        };
                     }
                 },
                 animationConfig: {
