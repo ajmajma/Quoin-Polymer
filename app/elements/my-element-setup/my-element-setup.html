@@ -154,8 +154,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <h2 id="pageTitle">Element Setup <a data-route="my-impression" href="/my-impression" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab></a></h2>
             <div class="bottomWrapper transitionAnim">
 
-            <h3 id="subTitle">Individual Polymer Element</h3>
-            <h5 id="subTitle">(Click heading to highlight code)</h3>
+            <h3 class="subTitle">Individual Polymer Element</h3>
+            <h5 class="subTitle">(Click heading to highlight code)</h3>
 
             <div class="marked-comments" id="markedComments">
             <strong on-click="highlightModule">  <iron-icon icon="zoom-in"></iron-icon>Dom Module Element</strong>
@@ -204,17 +204,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                             behaviors: [
                                 Polymer.NeonSharedElementAnimatableBehavior,
                                 Polymer.NeonAnimatableBehavior
-                            ],
-                            //delcaration
-                            properties: {
-                                item: {
-                                    type: String,
-                                    value: "I am a declared property!",
-                                }
-                            },
-                            ready: function() {
-                                //run on component render
-                            }
+                            ]
                         });
                     })();
                    </scrpt>
@@ -274,6 +264,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 },
                 animationConfig: {
                     value: function() {
+                        var subTitle = Polymer.dom(this.root).querySelectorAll('.subTitle');
+                        var subTitleArray = Array.prototype.slice.call(subTitle);
                         return {
                             'entry': [{
                                 name: 'slide-from-left-animation',
@@ -283,9 +275,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                 timing: {delay: 200},
                                 name: 'slide-down-animation'
                             },{
-                                node: this.$.subTitle,
-                                timing: {delay: 250},
-                                name: 'slide-from-left-animation'
+                                name: 'cascaded-animation',
+                                animation: 'slide-from-left-animation',
+                                timing: {
+                                    delay: 250
+                                },
+                                nodes: subTitleArray
                             },{
                                 node: this.$.markedComments,
                                 timing: {delay: 350},
