@@ -10,8 +10,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="my-introduction">
     <style>
     ::host {
-      visibility: hidden;
+        visibility: hidden;
     }
+
     neon-animated-pages {
         height: 100%;
     }
@@ -19,61 +20,71 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .fullbleed {
         height: 100%;
         padding: 40px;
-        background-color: #283593;
+        background-color: #fafafa;
     }
 
-     .next {
-      display: block;
-      margin: 0 auto;
-      width: 60px;
-       --paper-fab-background: var(--paper-light-blue-500);
-      --paper-fab-keyboard-focus-background: var(--paper-light-blue-900);
+    .next {
+        display: block;
+        margin: 0 auto;
+        width: 60px;
+        --paper-fab-background: var(--paper-light-blue-500);
+        --paper-fab-keyboard-focus-background: var(--paper-light-blue-900);
+    }
+
+    svg {
+        width: 250px;
+        margin: 0 auto;
+        display: block;
     }
 
     h2 {
-      text-align: center;
-      padding-top: 120px;
-      font-weight: 200;
-      font-size: 48px;
-      margin: 20px 0;
-      color: #fafafa;
-    }
-    h3 {
-      color: #fafafa;
-      text-align: center;
-      margin: 0 0 15px;
-      height: 64px;
-      font-size: 20px;
-      font-weight: 200;
-      line-height: 28px;
-    }
-    hr {
-      width: 100%;
-      color: rgb(100, 181, 246);
-      background-color: #fff;
-      opacity: 1;
-      border: 0;
-      height: 1px;
-    }
-    p {
-      font-size: 13px;
-      margin: 10px 0 0 0;
-      line-height: 20px;
-      height: 40px;
-      color: #fff;
+        text-align: center;
+        padding-top: 120px;
+        font-weight: 200;
+        font-size: 48px;
+        margin: 20px 0;
+        color: #fafafa;
     }
 
-    a{
-      text-decoration: none;
-      color: #fff;
+    h3 {
+        color: #fafafa;
+        text-align: center;
+        margin: 0 0 15px;
+        padding-top: 15px;
+        height: 44px;
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 28px;
+    }
+
+    hr {
+        width: 100%;
+        color: rgb(100, 181, 246);
+        background-color: #fff;
+        opacity: 1;
+        border: 0;
+        height: 1px;
+    }
+
+    p {
+        font-size: 13px;
+        margin: 10px 0 0 0;
+        line-height: 20px;
+        height: 40px;
+        color: #fff;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
     }
 
     .big {
-      display: block;
-      margin: 0 auto;
-      --iron-icon-height: 120px;
-      --iron-icon-width: 120px;
-      color: #FF4081;
+        display: block;
+        margin: 0 auto;
+        --iron-icon-height: 120px;
+        --iron-icon-width: 120px;
+        color: #FF4081;
     }
 
     .circle {
@@ -86,10 +97,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         border-radius: 50%;
         background: #fff;
         cursor: pointer;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 
-     .circle2 {
+    .circle2 {
         color: #fff;
         padding: 20px;
         box-sizing: border-box;
@@ -100,21 +111,185 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background: #283593;
         cursor: pointer;
     }
-
     </style>
     <template>
         <div class="fullbleed" id="testAnim">
-
             <div class="circle circleAnim">
                 <div class="circle2 circleAnim">
-                  <h2 class="introCenter">Polymer Tech Talk</h2>
-                        <iron-icon icon="polymer" class="big introCenter"></iron-icon>
-                  <h3 class="introCenter">Alex Moser</h3>
-                  <a data-route="introduction" href="/introduction" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="introCenter"></paper-fab></a>
+                    <h2 class="introCenter">Polymer Tech Talk</h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416 286">
+                        <g>
+                            <g>
+                                <polygon fill="#303F9F" points="84.157,143 42.878,214.5 84.157,286 125.436,214.5   " />
+                                <polygon fill="#3F51B5" points="331.842,0 290.561,71.5 331.842,143 373.121,71.5   " />
+                                <polygon fill="#7986CB" points="373.121,71.5 249.278,286 331.842,286 414.4,143   " />
+                                <polygon fill="#FF4081" points="249.278,0 84.157,286 166.721,286 331.842,0   " />
+                                <polygon fill="#536DFE" points="84.157,0 1.596,143 42.878,214.5 166.721,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.2" points="249.278,0 290.561,71.5 331.842,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.1" points="208,71.5 249.278,0 290.561,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="208,71.5 249.278,143 290.561,71.5   " />
+                                <polygon fill-opacity="0.1" points="166.721,143 208,71.5 249.278,143   " />
+                                <polygon fill-opacity="0.2" points="166.721,143 208,214.5 249.278,143   " />
+                                <polygon fill-opacity="0.3" points="125.438,214.5 166.721,143 208,214.5   " />
+                                <polygon fill-opacity="0.4" points="125.438,214.5 166.721,286 208,214.5   " />
+                                <polygon fill-opacity="0.5" points="84.157,286 125.438,214.5 166.721,286   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.2" points="84.157,0 125.438,71.5 166.721,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.1" points="42.878,71.5 84.157,0 125.438,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="42.878,71.5 84.157,143 125.438,71.5   " />
+                                <polygon fill-opacity="0.1" points="1.598,143 42.878,71.5 84.157,143   " />
+                                <polygon fill-opacity="0.2" points="1.598,143 42.878,214.5 84.157,143   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="125.438,214.5 84.157,143 42.878,214.5   " />
+                                <polygon fill-opacity="0.2" points="125.438,214.5 84.157,286 42.878,214.5   " />
+                                <polygon fill-opacity="0.2" points="373.121,71.5 331.842,0 290.561,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="373.121,71.5 331.842,143 290.561,71.5   " />
+                                <g>
+                                    <polygon fill="#FFFFFF" fill-opacity="0.2" points="331.842,143 373.121,71.5 414.4,143    " />
+                                    <polygon fill="#FFFFFF" fill-opacity="0.1" points="331.842,143 373.121,214.5 414.4,143    " />
+                                    <polygon fill="#FFFFFF" fill-opacity="0" points="290.561,214.5 331.842,143 373.121,214.5    " />
+                                    <polygon fill-opacity="0.1" points="290.561,214.5 331.842,286 373.121,214.5    " />
+                                    <polygon fill-opacity="0.2" points="249.278,286 290.561,214.5 331.842,286    " />
+                                </g>
+                            </g>
+                        </g>
+                        <g display="none">
+                            <g display="inline">
+                                <polygon fill="#303F9F" points="84.157,143 42.878,214.5 84.157,286 166.721,286   " />
+                                <polygon fill="#3F51B5" points="331.842,0 249.278,0 331.842,143 373.121,71.5   " />
+                                <polygon fill="#7986CB" points="373.121,71.5 249.278,286 331.842,286 414.4,143   " />
+                                <polygon fill="#536DFE" points="84.157,0 1.596,143 42.878,214.5 166.721,0   " />
+                                <polygon fill-opacity="0.5" points="249.278,0 290.561,71.5 331.842,0   " />
+                                <polygon fill-opacity="0.5" points="84.157,286 125.438,214.5 166.721,286   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.2" points="84.157,0 125.438,71.5 166.721,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.1" points="42.878,71.5 84.157,0 125.438,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="42.878,71.5 84.157,143 125.438,71.5   " />
+                                <polygon fill-opacity="0.1" points="1.598,143 42.878,71.5 84.157,143   " />
+                                <polygon fill-opacity="0.2" points="1.598,143 42.878,214.5 84.157,143   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="125.438,214.5 84.157,143 42.878,214.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="373.121,71.5 331.842,143 290.561,71.5   " />
+                                <g>
+                                    <polygon fill="#FFFFFF" fill-opacity="0.2" points="331.842,143 373.121,71.5 414.4,143    " />
+                                    <polygon fill="#FFFFFF" fill-opacity="0.1" points="331.842,143 373.121,214.5 414.4,143    " />
+                                    <polygon fill="#FFFFFF" fill-opacity="0" points="290.561,214.5 331.842,143 373.121,214.5    " />
+                                    <polygon fill-opacity="0.1" points="290.561,214.5 331.842,286 373.121,214.5    " />
+                                    <polygon fill-opacity="0.2" points="249.278,286 290.561,214.5 331.842,286    " />
+                                </g>
+                                <polygon fill-opacity="0.2" points="125.438,214.5 84.157,286 42.878,214.5   " />
+                                <polygon fill-opacity="0.2" points="373.121,71.5 331.842,0 290.561,71.5   " />
+                            </g>
+                        </g>
+                        <g display="none">
+                            <g display="inline">
+                                <polygon fill="#FF4081" points="249.279,0 84.157,286 166.721,286 331.843,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.2" points="249.279,0 290.558,71.5 331.843,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.1" points="208,71.5 249.279,0 290.558,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="208,71.5 249.279,143 290.558,71.5   " />
+                                <polygon fill-opacity="0.2" points="166.721,143 208,214.5 249.279,143   " />
+                                <polygon fill-opacity="0.3" points="125.439,214.5 166.721,143 208,214.5   " />
+                                <polygon fill-opacity="0.4" points="125.439,214.5 166.721,286 208,214.5   " />
+                                <polygon fill-opacity="0.5" points="84.157,286 125.439,214.5 166.721,286   " />
+                                <polygon fill-opacity="0.1" points="166.721,143 208,71.5 249.279,143   " />
+                            </g>
+                            <g display="inline">
+                                <polygon fill="#FF4081" points="331.84,0 166.718,286 249.279,286 373.121,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.1" points="290.558,71.5 331.84,0 373.121,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="290.558,71.5 331.84,143 373.121,71.5   " />
+                                <polygon fill-opacity="0.2" points="249.279,143 290.558,214.5 331.84,143   " />
+                                <polygon fill-opacity="0.3" points="208,214.5 249.279,143 290.558,214.5   " />
+                                <polygon fill-opacity="0.4" points="208,214.5 249.279,286 290.558,214.5   " />
+                                <polygon fill-opacity="0.5" points="166.718,286 208,214.5 249.279,286   " />
+                                <polygon fill-opacity="0.1" points="249.279,143 290.558,71.5 331.84,143   " />
+                            </g>
+                            <g display="inline">
+                                <polygon fill="#FF4081" points="166.718,0 42.878,214.5 84.16,286 249.279,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.2" points="166.718,0 208,71.5 249.279,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.1" points="125.439,71.5 166.718,0 208,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="125.439,71.5 166.718,143 208,71.5   " />
+                                <polygon fill-opacity="0.2" points="84.16,143 125.439,214.5 166.718,143   " />
+                                <polygon fill-opacity="0.3" points="42.878,214.5 84.16,143 125.439,214.5   " />
+                                <polygon fill-opacity="0.4" points="42.878,214.5 84.16,286 125.439,214.5   " />
+                                <polygon fill-opacity="0.1" points="84.16,143 125.439,71.5 166.718,143   " />
+                            </g>
+                            <g display="inline">
+                                <polygon fill="#303F9F" points="84.157,143 42.878,214.5 84.157,286 166.721,286   " />
+                                <polygon fill="#3F51B5" points="331.843,0 249.279,0 331.843,143 373.121,71.5   " />
+                                <polygon fill="#7986CB" points="373.121,71.5 249.279,286 331.843,286 414.4,143   " />
+                                <polygon fill="#536DFE" points="84.157,0 1.597,143 42.878,214.5 166.721,0   " />
+                                <polygon fill-opacity="0.5" points="249.279,0 290.558,71.5 331.843,0   " />
+                                <polygon fill-opacity="0.5" points="84.157,286 125.439,214.5 166.721,286   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.2" points="84.157,0 125.439,71.5 166.721,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.1" points="42.878,71.5 84.157,0 125.439,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="42.878,71.5 84.157,143 125.439,71.5   " />
+                                <polygon fill-opacity="0.1" points="1.6,143 42.878,71.5 84.157,143   " />
+                                <polygon fill-opacity="0.2" points="1.6,143 42.878,214.5 84.157,143   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="125.439,214.5 84.157,143 42.878,214.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="373.121,71.5 331.843,143 290.558,71.5   " />
+                                <g>
+                                    <polygon fill="#FFFFFF" fill-opacity="0.2" points="331.843,143 373.121,71.5 414.4,143    " />
+                                    <polygon fill="#FFFFFF" fill-opacity="0.1" points="331.843,143 373.121,214.5 414.4,143    " />
+                                    <polygon fill="#FFFFFF" fill-opacity="0" points="290.558,214.5 331.843,143 373.121,214.5    " />
+                                    <polygon fill-opacity="0.1" points="290.558,214.5 331.843,286 373.121,214.5    " />
+                                    <polygon fill-opacity="0.2" points="249.279,286 290.558,214.5 331.843,286    " />
+                                </g>
+                                <polygon fill-opacity="0.2" points="125.439,214.5 84.157,286 42.878,214.5   " />
+                                <polygon fill-opacity="0.2" points="373.121,71.5 331.843,0 290.558,71.5   " />
+                            </g>
+                        </g>
+                        <g display="none">
+                            <g display="inline">
+                                <polygon fill="#9F499B" points="249.279,0 84.157,286 166.721,286 331.843,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.2" points="249.279,0 290.558,71.5 331.843,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.1" points="208,71.5 249.279,0 290.558,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="208,71.5 249.279,143 290.558,71.5   " />
+                                <polygon fill-opacity="0.2" points="166.721,143 208,214.5 249.279,143   " />
+                                <polygon fill-opacity="0.3" points="125.439,214.5 166.721,143 208,214.5   " />
+                                <polygon fill-opacity="0.4" points="125.439,214.5 166.721,286 208,214.5   " />
+                                <polygon fill-opacity="0.5" points="84.157,286 125.439,214.5 166.721,286   " />
+                                <polygon fill-opacity="0.1" points="166.721,143 208,71.5 249.279,143   " />
+                            </g>
+                            <g display="inline">
+                                <polygon fill="#9F499B" points="331.84,0 166.718,286 249.279,286 373.121,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.1" points="290.558,71.5 331.84,0 373.121,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="290.558,71.5 331.84,143 373.121,71.5   " />
+                                <polygon fill-opacity="0.2" points="249.279,143 290.558,214.5 331.84,143   " />
+                                <polygon fill-opacity="0.3" points="208,214.5 249.279,143 290.558,214.5   " />
+                                <polygon fill-opacity="0.4" points="208,214.5 249.279,286 290.558,214.5   " />
+                                <polygon fill-opacity="0.5" points="166.718,286 208,214.5 249.279,286   " />
+                                <polygon fill-opacity="0.1" points="249.279,143 290.558,71.5 331.84,143   " />
+                            </g>
+                            <g display="inline">
+                                <polygon fill="#9F499B" points="373.121,71.5 249.279,286 331.843,286 414.4,143   " />
+                                <polygon fill-opacity="0.2" points="331.843,143 373.121,214.5 414.4,143   " />
+                                <polygon fill-opacity="0.3" points="290.558,214.5 331.843,143 373.121,214.5   " />
+                                <polygon fill-opacity="0.4" points="290.558,214.5 331.843,286 373.121,214.5   " />
+                                <polygon fill-opacity="0.5" points="249.279,286 290.558,214.5 331.843,286   " />
+                                <polygon fill-opacity="0.1" points="331.843,143 373.121,71.5 414.4,143   " />
+                            </g>
+                            <g display="inline">
+                                <polygon fill="#9F499B" points="166.718,0 42.878,214.5 84.16,286 249.279,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.2" points="166.718,0 208,71.5 249.279,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.1" points="125.439,71.5 166.718,0 208,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="125.439,71.5 166.718,143 208,71.5   " />
+                                <polygon fill-opacity="0.2" points="84.16,143 125.439,214.5 166.718,143   " />
+                                <polygon fill-opacity="0.3" points="42.878,214.5 84.16,143 125.439,214.5   " />
+                                <polygon fill-opacity="0.4" points="42.878,214.5 84.16,286 125.439,214.5   " />
+                                <polygon fill-opacity="0.1" points="84.16,143 125.439,71.5 166.718,143   " />
+                            </g>
+                            <g display="inline">
+                                <polygon fill="#9F499B" points="84.157,0 1.6,143 42.878,214.5 166.721,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.2" points="84.157,0 125.439,71.5 166.721,0   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0.1" points="42.878,71.5 84.157,0 125.439,71.5   " />
+                                <polygon fill="#FFFFFF" fill-opacity="0" points="42.878,71.5 84.157,143 125.439,71.5   " />
+                                <polygon fill-opacity="0.2" points="1.6,143 42.878,214.5 84.157,143   " />
+                                <polygon fill-opacity="0.1" points="1.6,143 42.878,71.5 84.157,143   " />
+                            </g>
+                        </g>
+                    </svg>
+                    <h3 class="introCenter">Alex Moser</h3>
+                    <a data-route="introduction" href="/introduction" class="next" id="next">
+                        <paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="introCenter"></paper-fab>
+                    </a>
                 </div>
             </div>
-
-
         </div>
     </template>
     <script>
@@ -133,53 +308,67 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 },
                 animationConfig: {
                     value: function() {
-                      var poly = Polymer.dom(this.root).querySelectorAll('.circleAnim');
-                      var polyArray = Array.prototype.slice.call(poly);
+                        var poly = Polymer.dom(this.root).querySelectorAll('.circleAnim');
+                        var polyArray = Array.prototype.slice.call(poly);
 
-                      var intro = Polymer.dom(this.root).querySelectorAll('.introCenter');
-                      var introArray = Array.prototype.slice.call(intro);
+                        var intro = Polymer.dom(this.root).querySelectorAll('.introCenter');
+                        var introArray = Array.prototype.slice.call(intro);
+
+                        var logo = Polymer.dom(this.root).querySelectorAll('polygon');
+                        var logoArray = Array.prototype.slice.call(logo);
                         return {
                             'entry': [{
-                              node: this,
-                              name: 'scale-up-animation'
-                            },{
+                                node: this,
+                                name: 'scale-up-animation'
+                            }, {
                                 name: 'cascaded-animation',
-                                timing: {delay: 400},
+                                timing: {
+                                    delay: 400
+                                },
                                 animation: 'scale-up-animation',
                                 nodes: polyArray
-                            },{
+                            }, {
                                 name: 'cascaded-animation',
-                                timing: {delay: 800},
+                                timing: {
+                                    delay: 800
+                                },
                                 animation: 'scale-up-animation',
                                 nodes: introArray
-                            },{
-                              node: this.$.next,
-                              name: 'scale-up-animation'
+                            }, {
+                                name: 'cascaded-animation',
+                                timing: {
+                                    delay: 1200
+                                },
+                                animation: 'scale-up-animation',
+                                nodes: logoArray
+                            }, {
+                                node: this.$.next,
+                                name: 'scale-up-animation'
                             }],
                             'exit': [{
-                              name: 'hero-animation',
-                              id: 'hero',
-                              fromPage: this
-                          }]
+                                name: 'hero-animation',
+                                id: 'hero',
+                                fromPage: this
+                            }]
                         };
                     }
                 }
             },
             attached: function() {
-              this.style.visibility = 'visible';
-              this.playAnimation('entry');
+                this.style.visibility = 'visible';
+                this.playAnimation('entry');
             },
-             listeners: {
+            listeners: {
                 'click': '_onClick'
             },
             _onClick: function(event) {
-              var target = event.target;
-              if (target.classList.contains('paper-fab')) {
-                  // configure the page animation
-                  this.sharedElements = {
-                      'hero': target
-                  };
-              }
+                var target = event.target;
+                if (target.classList.contains('paper-fab')) {
+                    // configure the page animation
+                    this.sharedElements = {
+                        'hero': target
+                    };
+                }
             }
         });
     })();

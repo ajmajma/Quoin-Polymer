@@ -128,10 +128,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                             'entry': [{
                                 name: 'hero-animation',
                                 id: 'hero',
+                                timing: { duration: 800},
                                 toPage: this
                             }, {
                                 name: 'cascaded-animation',
                                 animation: 'transform-animation',
+                                timing: { delay: 100},
                                 transformFrom: 'translateY(60vh)',
                                 nodes: polyArray
                             }],
