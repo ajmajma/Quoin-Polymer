@@ -12,9 +12,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="">
+    <meta name="description" content="Quoin - Polymer Presentation">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Polymer Starter Kit" />
+    <meta name="generator" content="Quoin - Polymer Presentation" />
     <title>Quoin - Polymer Presentation</title>
     <!-- Place favicon.ico in the `app/` directory -->
     <!-- Chrome for Android theme color -->
@@ -51,12 +51,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <paper-drawer-panel id="paperDrawerPanel" force-narrow="true">
             <!-- Drawer Scroll Header Panel -->
             <paper-scroll-header-panel drawer fixed>
-
                 <paper-toolbar id="drawerToolbar">
                     <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
                     <span class="paper-font-title">Menu</span>
                 </paper-toolbar>
-
                 <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
                     <a data-route="home" href="/">
                         <iron-icon icon="polymer"></iron-icon>
@@ -103,41 +101,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <!-- Main Area -->
             <paper-scroll-header-panel main condenses>
                 <!-- Main Toolbar -->
-                  <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+                <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
                 <!-- Main Content -->
                 <div class="content">
-
-                    <neon-animated-pages id="pages" attr-for-selected="data-route"  selected="{{route}}" class="animationStyleFix">
-
+                    <neon-animated-pages id="pages" attr-for-selected="data-route" selected="{{route}}" class="animationStyleFix">
                         <my-introduction data-route="home"></my-introduction>
-
                         <my-landing data-route="introduction"></my-landing>
-
                         <slide-one-wrapper data-route="slide-one"></slide-one-wrapper>
-
                         <intro-wrapper data-route="polymer-intro"></intro-wrapper>
-
                         <web-components-wrapper data-route="web-components"></web-components-wrapper>
-
                         <my-element-setup data-route="element-setup"></my-element-setup>
-
                         <my-polymer-build data-route="build-setup"></my-polymer-build>
-
                         <my-polymer-elements data-route="polymer-elements"></my-polymer-elements>
-
                         <my-impression data-route="my-impression"></my-impression>
-
                         <my-resources data-route="my-resources"></my-resources>
-
                         <my-greeting data-route="test"></my-greeting>
-
                     </neon-animated-pages>
-
                 </div>
             </paper-scroll-header-panel>
         </paper-drawer-panel>
     </template>
-
     <!-- build:js scripts/app.js -->
     <script src="scripts/app.js"></script>
     <!-- endbuild-->

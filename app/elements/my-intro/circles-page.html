@@ -97,7 +97,7 @@
             <h2 class="transitionAnim">More On Polymer <a data-route="polymer-elements" href="/polymer-elements" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab></a></h2>
             <div class="bottomWrapper transitionAnim">
                 <h3 id="subTitle">Polymer is a library for building web compononents</h3>
-                <div class="innerBottomWrap transitionAnim" id="bottomWrap">
+                <div class="innerBottomWrap" id="bottomWrap">
                     <div class="listItem">Web components are not a framework they can work with everything (pending browser support)</div>
                     <div class="listItem">For Polymer, the DOM is the framework - use all the good parts of the DOM the component model (elements, &lt;video&gt;)</div>
                     <div class="listItem">Polymer lets you build custom elements</div>
@@ -162,15 +162,8 @@ Polymer({
                         id: 'hero',
                         fromPage: this
                     }, {
-                        name: 'cascaded-animation',
-                        animation: 'scale-down-animation'
-                    }, {
-                        node: this.$.circleList,
-                        name: 'scale-down-animation'
-                    }, {
-                        name: 'cascaded-animation',
-                        animation: 'scale-down-animation',
-                        nodes: exitArray
+                        name: 'scale-down-animation',
+                        node: this
                     }]
                 };
             }
