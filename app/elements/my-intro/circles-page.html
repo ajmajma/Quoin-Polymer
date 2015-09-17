@@ -2,7 +2,7 @@
     <style>
     :host {
         height: 100%;
-        background-color: #fff;
+        background-color: #fafafa;
         font-weight: 200;
     }
 
@@ -52,11 +52,13 @@
     .innerBottomWrap {
         border-left: 5px solid #2196F3;
         padding-left: 20px;
+        width: 45%;
     }
 
     .listItem {
-        font-size: 18px;
+        font-size: 15px;
         line-height: 38px;
+        padding-bottom: 10px;
         font-weight: 200;
         color: #757575;
     }
@@ -83,6 +85,12 @@
         --paper-fab-background: var(--paper-blue-300);
         --paper-fab-keyboard-focus-background: var(--paper-blue-900);
     }
+
+    my-greeting {
+       position: absolute;
+       top: 295px;
+       right: 350px;
+    }
     </style>
     <template>
         <div>
@@ -90,7 +98,7 @@
             <div class="bottomWrapper transitionAnim">
                 <h3 id="subTitle">Polymer is a library for building web compononents</h3>
                 <div class="innerBottomWrap" id="bottomWrap">
-                    <div class="listItem">Polymer is NOT a framework, web components are not a framework they can work with everything (pending browser support)</div>
+                    <div class="listItem">Web components are not a framework they can work with everything (pending browser support)</div>
                     <div class="listItem">For Polymer, the DOM is the framework - use all the good parts of the DOM the component model (elements, &lt;video&gt;)</div>
                     <div class="listItem">Polymer lets you build custom elements</div>
                     <div class="listItem">Provides interoperable and reusable standards</div>
@@ -100,6 +108,7 @@
                         <div class="circle">existing frameworks</div> ?</div>
                     <div class="listItem">Polymer currently has a catalog of working elements to jumpstart your work</div>
                 </div>
+                <my-greeting></my-greeting>
     </template>
 </dom-module>
 <script>

@@ -14,77 +14,259 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: 200;
     }
 
+    svg {
+        display: block;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+    }
+
     h2 {
         width: 100%;
         margin: 0;
-        background-color: #FF9800;
         font-weight: 200;
         font-size: 56px;
-        padding: 60px 60px;
-        color: #fff;
+        padding: 60px 60px 30px 60px;
     }
 
     h3 {
-        color: #FF9800;
+        color: #3F51B5;
         font-size: 24px;
         font-weight: 400;
         line-height: 32px;
         margin-bottom: 30px
     }
 
-    hr {
-        width: 100%;
-        color: rgb(100, 181, 246);
-        background-color: #fff;
-        opacity: 1;
-        border: 0;
-        height: 1px;
+    #contentWrap {
+        z-index: 100;
+        display: block;
+        margin: 100px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        background-color: rgba(250, 250, 250, 0.90);
     }
 
     .bottomWrapper {
-        padding: 60px;
+        padding: 10px 60px 60px 60px;
     }
 
     .innerBottomWrap {
-        border-left: 5px solid #FF9800;
+        border-left: 5px solid #3F51B5;
         padding-left: 20px;
     }
 
     .listItem {
-        font-size: 20px;
-        line-height: 16px;
+        font-size: 18px;
+        line-height: 28px;
         padding-bottom: 30px;
         font-weight: 200;
-        color: #757575;
+        color: #0c0c0c;
     }
 
     .next {
         position: absolute;
-        top: 157px;
+        top: 40px;
         right: 40px;
+        z-index: 1000;
     }
 
     .fab {
-        --paper-fab-background: var(--paper-orange-300);
-        --paper-fab-keyboard-focus-background: var(--paper-orange-900);
+        --paper-fab-background: var(--paper-indigo-500);
+        --paper-fab-keyboard-focus-background: var(--paper-indigo-900);
+    }
+
+    a {
+        text-decoration: none;
+        color: #3F51B5;
+        font-weight: 500;
     }
     </style>
     <template>
         <div>
-            <h2 id="pageTitle">First Impression <a data-route="my-resources" href="/my-resources" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab></a></h2>
-            <div class="bottomWrapper transitionAnim">
-                <h3 id="subTitle">Initial thoughts on Polymer</h3>
-                <div class="innerBottomWrap animateMe" id="bottomWrap">
-                    <div class="listItem">The Available elements make it very easy to get up and running</div>
-                    <div class="listItem">The idea of creating a custom element for anything from a button to an entire app is great</div>
-                    <div class="listItem">Similarities to Angular's Directives and Reacts Components</div>
-                    <div class="listItem">Aims to codify in keeping things very declarative</div>
-                    <div class="listItem">Could use alongside current JS frameworks</div>
-                    <div class="listItem">Could be very powerful, you can wrap a ton of complexity and expose only what you need</div>
-                    <div class="listItem">Documentation/User base has room to improve</div>
-                    <div class="listItem">Web Components are not universally adopted (yet?) - but are slowly being adopted. There are also plenty of polyfills.</div>
+    <!--     <a data-route="my-resources" href="/my-resources" class="next" id="next"><paper-fab icon="arrow-forward" title="arrow-forward" tabindex="0" class="fab"></paper-fab></a> -->
+            <div id="contentWrap">
+                <h2 id="pageTitle">Thoughts on Polymer</h2>
+                <div class="bottomWrapper transitionAnim">
+                    <h3 id="subTitle">Initial thoughts on Polymer</h3>
+                    <div class="innerBottomWrap animateMe" id="bottomWrap">
+                        <div class="listItem">The Available elements make it very easy to get up and running</div>
+                        <div class="listItem">The idea of creating a custom element for anything from a button to an entire app is great</div>
+                        <div class="listItem">Similarities to Angulars Directives and Reacts Components, except native.</div>
+                        <div class="listItem">Aims to codify in keeping things very declarative</div>
+                        <div class="listItem">Could use alongside current JS frameworks</div>
+                        <div class="listItem">Could be very powerful, you can wrap a ton of complexity and expose only what you need</div>
+                        <div class="listItem">Documentation/User base has room to improve</div>
+                        <div class="listItem">Web Components are not universally adopted (yet?) - but are slowly being adopted. There are also plenty of polyfills.</div>
+                         <div class="listItem"> <a data-route="my-resources" href="/my-resources">Resources</a></div>
+                    </div>
                 </div>
             </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416 286">
+                <g>
+                    <g>
+                        <polygon fill="#303F9F" points="84.157,143 42.878,214.5 84.157,286 125.436,214.5   " />
+                        <polygon fill="#3F51B5" points="331.842,0 290.561,71.5 331.842,143 373.121,71.5   " />
+                        <polygon fill="#7986CB" points="373.121,71.5 249.278,286 331.842,286 414.4,143   " />
+                        <polygon fill="#FF4081" points="249.278,0 84.157,286 166.721,286 331.842,0   " />
+                        <polygon fill="#536DFE" points="84.157,0 1.596,143 42.878,214.5 166.721,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.2" points="249.278,0 290.561,71.5 331.842,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.1" points="208,71.5 249.278,0 290.561,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="208,71.5 249.278,143 290.561,71.5   " />
+                        <polygon fill-opacity="0.1" points="166.721,143 208,71.5 249.278,143   " />
+                        <polygon fill-opacity="0.2" points="166.721,143 208,214.5 249.278,143   " />
+                        <polygon fill-opacity="0.3" points="125.438,214.5 166.721,143 208,214.5   " />
+                        <polygon fill-opacity="0.4" points="125.438,214.5 166.721,286 208,214.5   " />
+                        <polygon fill-opacity="0.5" points="84.157,286 125.438,214.5 166.721,286   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.2" points="84.157,0 125.438,71.5 166.721,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.1" points="42.878,71.5 84.157,0 125.438,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="42.878,71.5 84.157,143 125.438,71.5   " />
+                        <polygon fill-opacity="0.1" points="1.598,143 42.878,71.5 84.157,143   " />
+                        <polygon fill-opacity="0.2" points="1.598,143 42.878,214.5 84.157,143   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="125.438,214.5 84.157,143 42.878,214.5   " />
+                        <polygon fill-opacity="0.2" points="125.438,214.5 84.157,286 42.878,214.5   " />
+                        <polygon fill-opacity="0.2" points="373.121,71.5 331.842,0 290.561,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="373.121,71.5 331.842,143 290.561,71.5   " />
+                        <g>
+                            <polygon fill="#FFFFFF" fill-opacity="0.2" points="331.842,143 373.121,71.5 414.4,143    " />
+                            <polygon fill="#FFFFFF" fill-opacity="0.1" points="331.842,143 373.121,214.5 414.4,143    " />
+                            <polygon fill="#FFFFFF" fill-opacity="0" points="290.561,214.5 331.842,143 373.121,214.5    " />
+                            <polygon fill-opacity="0.1" points="290.561,214.5 331.842,286 373.121,214.5    " />
+                            <polygon fill-opacity="0.2" points="249.278,286 290.561,214.5 331.842,286    " />
+                        </g>
+                    </g>
+                </g>
+                <g display="none">
+                    <g display="inline">
+                        <polygon fill="#303F9F" points="84.157,143 42.878,214.5 84.157,286 166.721,286   " />
+                        <polygon fill="#3F51B5" points="331.842,0 249.278,0 331.842,143 373.121,71.5   " />
+                        <polygon fill="#7986CB" points="373.121,71.5 249.278,286 331.842,286 414.4,143   " />
+                        <polygon fill="#536DFE" points="84.157,0 1.596,143 42.878,214.5 166.721,0   " />
+                        <polygon fill-opacity="0.5" points="249.278,0 290.561,71.5 331.842,0   " />
+                        <polygon fill-opacity="0.5" points="84.157,286 125.438,214.5 166.721,286   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.2" points="84.157,0 125.438,71.5 166.721,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.1" points="42.878,71.5 84.157,0 125.438,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="42.878,71.5 84.157,143 125.438,71.5   " />
+                        <polygon fill-opacity="0.1" points="1.598,143 42.878,71.5 84.157,143   " />
+                        <polygon fill-opacity="0.2" points="1.598,143 42.878,214.5 84.157,143   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="125.438,214.5 84.157,143 42.878,214.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="373.121,71.5 331.842,143 290.561,71.5   " />
+                        <g>
+                            <polygon fill="#FFFFFF" fill-opacity="0.2" points="331.842,143 373.121,71.5 414.4,143    " />
+                            <polygon fill="#FFFFFF" fill-opacity="0.1" points="331.842,143 373.121,214.5 414.4,143    " />
+                            <polygon fill="#FFFFFF" fill-opacity="0" points="290.561,214.5 331.842,143 373.121,214.5    " />
+                            <polygon fill-opacity="0.1" points="290.561,214.5 331.842,286 373.121,214.5    " />
+                            <polygon fill-opacity="0.2" points="249.278,286 290.561,214.5 331.842,286    " />
+                        </g>
+                        <polygon fill-opacity="0.2" points="125.438,214.5 84.157,286 42.878,214.5   " />
+                        <polygon fill-opacity="0.2" points="373.121,71.5 331.842,0 290.561,71.5   " />
+                    </g>
+                </g>
+                <g display="none">
+                    <g display="inline">
+                        <polygon fill="#FF4081" points="249.279,0 84.157,286 166.721,286 331.843,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.2" points="249.279,0 290.558,71.5 331.843,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.1" points="208,71.5 249.279,0 290.558,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="208,71.5 249.279,143 290.558,71.5   " />
+                        <polygon fill-opacity="0.2" points="166.721,143 208,214.5 249.279,143   " />
+                        <polygon fill-opacity="0.3" points="125.439,214.5 166.721,143 208,214.5   " />
+                        <polygon fill-opacity="0.4" points="125.439,214.5 166.721,286 208,214.5   " />
+                        <polygon fill-opacity="0.5" points="84.157,286 125.439,214.5 166.721,286   " />
+                        <polygon fill-opacity="0.1" points="166.721,143 208,71.5 249.279,143   " />
+                    </g>
+                    <g display="inline">
+                        <polygon fill="#FF4081" points="331.84,0 166.718,286 249.279,286 373.121,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.1" points="290.558,71.5 331.84,0 373.121,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="290.558,71.5 331.84,143 373.121,71.5   " />
+                        <polygon fill-opacity="0.2" points="249.279,143 290.558,214.5 331.84,143   " />
+                        <polygon fill-opacity="0.3" points="208,214.5 249.279,143 290.558,214.5   " />
+                        <polygon fill-opacity="0.4" points="208,214.5 249.279,286 290.558,214.5   " />
+                        <polygon fill-opacity="0.5" points="166.718,286 208,214.5 249.279,286   " />
+                        <polygon fill-opacity="0.1" points="249.279,143 290.558,71.5 331.84,143   " />
+                    </g>
+                    <g display="inline">
+                        <polygon fill="#FF4081" points="166.718,0 42.878,214.5 84.16,286 249.279,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.2" points="166.718,0 208,71.5 249.279,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.1" points="125.439,71.5 166.718,0 208,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="125.439,71.5 166.718,143 208,71.5   " />
+                        <polygon fill-opacity="0.2" points="84.16,143 125.439,214.5 166.718,143   " />
+                        <polygon fill-opacity="0.3" points="42.878,214.5 84.16,143 125.439,214.5   " />
+                        <polygon fill-opacity="0.4" points="42.878,214.5 84.16,286 125.439,214.5   " />
+                        <polygon fill-opacity="0.1" points="84.16,143 125.439,71.5 166.718,143   " />
+                    </g>
+                    <g display="inline">
+                        <polygon fill="#303F9F" points="84.157,143 42.878,214.5 84.157,286 166.721,286   " />
+                        <polygon fill="#3F51B5" points="331.843,0 249.279,0 331.843,143 373.121,71.5   " />
+                        <polygon fill="#7986CB" points="373.121,71.5 249.279,286 331.843,286 414.4,143   " />
+                        <polygon fill="#536DFE" points="84.157,0 1.597,143 42.878,214.5 166.721,0   " />
+                        <polygon fill-opacity="0.5" points="249.279,0 290.558,71.5 331.843,0   " />
+                        <polygon fill-opacity="0.5" points="84.157,286 125.439,214.5 166.721,286   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.2" points="84.157,0 125.439,71.5 166.721,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.1" points="42.878,71.5 84.157,0 125.439,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="42.878,71.5 84.157,143 125.439,71.5   " />
+                        <polygon fill-opacity="0.1" points="1.6,143 42.878,71.5 84.157,143   " />
+                        <polygon fill-opacity="0.2" points="1.6,143 42.878,214.5 84.157,143   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="125.439,214.5 84.157,143 42.878,214.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="373.121,71.5 331.843,143 290.558,71.5   " />
+                        <g>
+                            <polygon fill="#FFFFFF" fill-opacity="0.2" points="331.843,143 373.121,71.5 414.4,143    " />
+                            <polygon fill="#FFFFFF" fill-opacity="0.1" points="331.843,143 373.121,214.5 414.4,143    " />
+                            <polygon fill="#FFFFFF" fill-opacity="0" points="290.558,214.5 331.843,143 373.121,214.5    " />
+                            <polygon fill-opacity="0.1" points="290.558,214.5 331.843,286 373.121,214.5    " />
+                            <polygon fill-opacity="0.2" points="249.279,286 290.558,214.5 331.843,286    " />
+                        </g>
+                        <polygon fill-opacity="0.2" points="125.439,214.5 84.157,286 42.878,214.5   " />
+                        <polygon fill-opacity="0.2" points="373.121,71.5 331.843,0 290.558,71.5   " />
+                    </g>
+                </g>
+                <g display="none">
+                    <g display="inline">
+                        <polygon fill="#9F499B" points="249.279,0 84.157,286 166.721,286 331.843,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.2" points="249.279,0 290.558,71.5 331.843,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.1" points="208,71.5 249.279,0 290.558,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="208,71.5 249.279,143 290.558,71.5   " />
+                        <polygon fill-opacity="0.2" points="166.721,143 208,214.5 249.279,143   " />
+                        <polygon fill-opacity="0.3" points="125.439,214.5 166.721,143 208,214.5   " />
+                        <polygon fill-opacity="0.4" points="125.439,214.5 166.721,286 208,214.5   " />
+                        <polygon fill-opacity="0.5" points="84.157,286 125.439,214.5 166.721,286   " />
+                        <polygon fill-opacity="0.1" points="166.721,143 208,71.5 249.279,143   " />
+                    </g>
+                    <g display="inline">
+                        <polygon fill="#9F499B" points="331.84,0 166.718,286 249.279,286 373.121,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.1" points="290.558,71.5 331.84,0 373.121,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="290.558,71.5 331.84,143 373.121,71.5   " />
+                        <polygon fill-opacity="0.2" points="249.279,143 290.558,214.5 331.84,143   " />
+                        <polygon fill-opacity="0.3" points="208,214.5 249.279,143 290.558,214.5   " />
+                        <polygon fill-opacity="0.4" points="208,214.5 249.279,286 290.558,214.5   " />
+                        <polygon fill-opacity="0.5" points="166.718,286 208,214.5 249.279,286   " />
+                        <polygon fill-opacity="0.1" points="249.279,143 290.558,71.5 331.84,143   " />
+                    </g>
+                    <g display="inline">
+                        <polygon fill="#9F499B" points="373.121,71.5 249.279,286 331.843,286 414.4,143   " />
+                        <polygon fill-opacity="0.2" points="331.843,143 373.121,214.5 414.4,143   " />
+                        <polygon fill-opacity="0.3" points="290.558,214.5 331.843,143 373.121,214.5   " />
+                        <polygon fill-opacity="0.4" points="290.558,214.5 331.843,286 373.121,214.5   " />
+                        <polygon fill-opacity="0.5" points="249.279,286 290.558,214.5 331.843,286   " />
+                        <polygon fill-opacity="0.1" points="331.843,143 373.121,71.5 414.4,143   " />
+                    </g>
+                    <g display="inline">
+                        <polygon fill="#9F499B" points="166.718,0 42.878,214.5 84.16,286 249.279,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.2" points="166.718,0 208,71.5 249.279,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.1" points="125.439,71.5 166.718,0 208,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="125.439,71.5 166.718,143 208,71.5   " />
+                        <polygon fill-opacity="0.2" points="84.16,143 125.439,214.5 166.718,143   " />
+                        <polygon fill-opacity="0.3" points="42.878,214.5 84.16,143 125.439,214.5   " />
+                        <polygon fill-opacity="0.4" points="42.878,214.5 84.16,286 125.439,214.5   " />
+                        <polygon fill-opacity="0.1" points="84.16,143 125.439,71.5 166.718,143   " />
+                    </g>
+                    <g display="inline">
+                        <polygon fill="#9F499B" points="84.157,0 1.6,143 42.878,214.5 166.721,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.2" points="84.157,0 125.439,71.5 166.721,0   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0.1" points="42.878,71.5 84.157,0 125.439,71.5   " />
+                        <polygon fill="#FFFFFF" fill-opacity="0" points="42.878,71.5 84.157,143 125.439,71.5   " />
+                        <polygon fill-opacity="0.2" points="1.6,143 42.878,214.5 84.157,143   " />
+                        <polygon fill-opacity="0.1" points="1.6,143 42.878,71.5 84.157,143   " />
+                    </g>
+                </g>
+            </svg>
         </div>
     </template>
     <script>
@@ -104,6 +286,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     value: function() {
                         var titles = Polymer.dom(this.root).querySelectorAll('.listItem');
                         var titlesArray = Array.prototype.slice.call(titles);
+
+                        var logo = Polymer.dom(this.root).querySelectorAll('polygon');
+                        var logoArray = Array.prototype.slice.call(logo);
                         return {
                             'entry': [{
                                 name: 'scale-up-animation',
@@ -113,27 +298,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                 timing: {
                                     delay: 200
                                 },
-                                node: this.$.pageTitle
-                            }, {
-                                name: 'slide-down-animation',
-                                timing: {
-                                    delay: 250
-                                },
-                                node: this.$.subTitle
-                            }, {
-                                name: 'slide-down-animation',
-                                timing: {
-                                    delay: 200
-                                },
-                                node: this.$.pageTitle
+                                node: this.$.contentWrap
                             }, {
                                 name: 'cascaded-animation',
-                                 animation: 'transform-animation',
                                 timing: {
-                                    delay: 200
+                                    delay: 100
                                 },
-                                transformFrom: 'translateY(250%)',
-                                nodes: titlesArray
+                                animation: 'slide-from-right-animation',
+                                nodes: logoArray
                             }],
                             'exit': [{
                                 node: this,
