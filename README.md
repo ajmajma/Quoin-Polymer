@@ -2,5 +2,5 @@
 
 to run project 
 
-- [ ] npm install 
-- [ ] gulp serve
+- [x] npm install 
+- [x] gulp serve
